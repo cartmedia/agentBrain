@@ -8,6 +8,7 @@ tags: [meta, rules]
 
 ## Kernprincipe
 Dit is een extern geheugen. Het groeit mee met elke sessie en wordt slimmer over tijd.
+`System/Rules.md` is het gedetailleerde beleid. `.github/copilot-instructions.md` is de uitvoeringsspec die Copilot automatisch leest.
 
 ## Werkstijl
 - Autonome uitvoering — taken afmaken zonder te vragen bij triviale beslissingen
@@ -33,13 +34,27 @@ Lees bij het begin van elke sessie:
 3. Relevante `Projects/*.md` — projectcontext
 
 ### Stap 2: Schrijven tijdens sessie
-| Wat | Waar |
-|-----|------|
-| Workaround/fix gevonden | `Learnings/Troubleshooting.md` — sectie toevoegen |
-| Patroon 2x+ herkend | `Learnings/Patterns.md` — sectie toevoegen |
-| Nieuw technisch inzicht | `Learnings/[categorie].md` — nieuw bestand |
-| Nieuw project | `Projects/[naam].md` — gebruik `Templates/Project.md` |
-| Project update/beslissing | Bestaande `Projects/[naam].md` bijwerken |
+| Trigger | Actie |
+|---------|-------|
+| Workaround/fix gevonden | → `Learnings/Troubleshooting.md` — sectie toevoegen |
+| Patroon 2x+ herkend | → `Learnings/Patterns.md` — sectie toevoegen |
+| Nieuw technisch inzicht | → `Learnings/[categorie].md` — nieuw bestand (zie categorieën hieronder) |
+| Nieuw project gestart | → `Projects/[naam].md` — gebruik `Templates/Project.md` |
+| Project milestone/beslissing | → bestaande `Projects/[naam].md` bijwerken |
+| Library/API beperking ontdekt | → `Learnings/Troubleshooting.md` |
+| Cross-platform fix | → `Learnings/Troubleshooting.md` |
+| Build/deploy configuratie | → `Learnings/[tool].md` of `Troubleshooting.md` |
+
+### Categorieën voor `Learnings/[categorie].md`
+Voorbeelden van categorie-bestanden die je kunt aanmaken:
+- `Learnings/macOS.md` — platform-specifieke kennis
+- `Learnings/Node.md` — Node.js/npm/Bun specifiek
+- `Learnings/Git.md` — geavanceerde git workflows
+- `Learnings/Docker.md` — containers, compose, deploy
+- `Learnings/CSS.md` — styling, layout, animaties
+- `Learnings/Swift.md` — iOS/macOS development
+
+Naamconventie: PascalCase, kort, technologie-georiënteerd.
 
 ### Stap 3: Valideren
 Voordat je schrijft, check:

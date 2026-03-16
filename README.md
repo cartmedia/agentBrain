@@ -19,7 +19,10 @@ Portable kennisbank voor VS Code Copilot. Plaats deze map in je project root of 
 Copilot leest `.github/copilot-instructions.md` bij elke interactie. Dit bestand verwijst naar patronen en regels in de `Learnings/` en `System/` mappen, zodat Copilot context heeft over je werkwijze en technische beslissingen.
 
 ### Uitbreiden
-Voeg nieuwe inzichten toe aan `Learnings/` met het template uit `Templates/Learning.md`. Copilot pikt ze automatisch op zodra je ernaar verwijst in `copilot-instructions.md`.
+Voeg nieuwe inzichten toe aan `Learnings/` met het template uit `Templates/Learning.md`. Frontmatter is verplicht (`date`, `type`, `tags`, `confidence`, `source`). Copilot pikt ze automatisch op zodra je ernaar verwijst in `copilot-instructions.md`.
+
+### Self-Learning
+agentBrain is zelflerend: Copilot schrijft automatisch nieuwe inzichten, patronen en troubleshooting fixes naar de juiste bestanden. Zie `System/Rules.md` voor het volledige protocol.
 
 ## Compatibiliteit
 - **VS Code Copilot** — primaire target (leest `.github/copilot-instructions.md`)

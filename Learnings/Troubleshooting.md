@@ -3,6 +3,7 @@ date: 2026-03-16
 type: learning
 tags: [troubleshooting, debugging]
 confidence: high
+source: session
 ---
 
 # Troubleshooting Log
