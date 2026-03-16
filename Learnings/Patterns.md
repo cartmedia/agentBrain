@@ -29,3 +29,7 @@ source: session
 - Config via environment variables, nooit hardcoded
 - Logging op juiste niveaus (error/warn/info/debug)
 - Idempotente operaties waar mogelijk
+
+## Gerelateerd
+- `Learnings/Troubleshooting.md` — anti-patronen en bekende valkuilen
+- `System/Rules.md` — wanneer en hoe patronen opslaan

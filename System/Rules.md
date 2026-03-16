@@ -38,11 +38,12 @@ Lees bij het begin van elke sessie:
 |---------|-------|
 | Workaround/fix gevonden | → `Learnings/Troubleshooting.md` — sectie toevoegen |
 | Patroon 2x+ herkend | → `Learnings/Patterns.md` — sectie toevoegen |
+| Patroon 1e keer gezien | → `Learnings/Patterns.md` met `confidence: low`, noteer "gezien 1x" |
 | Nieuw technisch inzicht | → `Learnings/[categorie].md` — nieuw bestand (zie categorieën hieronder) |
 | Nieuw project gestart | → `Projects/[naam].md` — gebruik `Templates/Project.md` |
 | Project milestone/beslissing | → bestaande `Projects/[naam].md` bijwerken |
-| Library/API beperking ontdekt | → `Learnings/Troubleshooting.md` |
-| Cross-platform fix | → `Learnings/Troubleshooting.md` |
+| Library/API beperking ontdekt | → `Learnings/Troubleshooting.md` — sectie toevoegen |
+| Cross-platform fix | → `Learnings/Troubleshooting.md` — sectie toevoegen |
 | Build/deploy configuratie | → `Learnings/[tool].md` of `Troubleshooting.md` |
 
 ### Categorieën voor `Learnings/[categorie].md`
@@ -55,6 +56,7 @@ Voorbeelden van categorie-bestanden die je kunt aanmaken:
 - `Learnings/Swift.md` — iOS/macOS development
 
 Naamconventie: PascalCase, kort, technologie-georiënteerd.
+Maak ze pas aan wanneer een relevant inzicht opduikt — niet preventief.
 
 ### Stap 3: Valideren
 Voordat je schrijft, check:
@@ -70,14 +72,16 @@ Voordat je schrijft, check:
 - Sessie-specifieke tijdelijke state
 
 ## Hoe schrijven
-- Frontmatter altijd: `date`, `type`, `tags`, `confidence`, `source`
+- Frontmatter altijd verplicht. Per type:
+  - **Learning**: `date`, `type`, `tags`, `confidence`, `source`
+  - **Project**: `date`, `type`, `tags`, `status`, `priority`
 - Kort en bondig, geen proza
 - Update > nieuw — bestaande notes bijwerken boven nieuwe maken
 - Elke note moet actionable zijn
 - `source: session` voor inzichten uit chat, `source: documentation` voor docs
 
 ## Kwaliteit
-- Patronen: minimaal 2x voorgekomen
+- Patronen: minimaal 2x voorgekomen voor `confidence: high` (1e keer: schrijf met `confidence: low`, noteer "gezien 1x")
 - Troubleshooting: reproduceerbaar
 - Verouderde info: updaten of verwijderen
 

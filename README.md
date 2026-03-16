@@ -1,6 +1,6 @@
 # agentBrain
 
-Portable kennisbank voor VS Code Copilot. Plaats deze map in je project root of gebruik `.github/copilot-instructions.md` als entry point.
+Portable kennisbank voor VS Code Copilot. Plaats deze map in je project root. Als je agentBrain in een subdirectory plaatst, pas dan alle relatieve paden in `.github/copilot-instructions.md` aan.
 
 ## Structuur
 - `.github/copilot-instructions.md` — Copilot leest dit automatisch
@@ -19,7 +19,11 @@ Portable kennisbank voor VS Code Copilot. Plaats deze map in je project root of 
 Copilot leest `.github/copilot-instructions.md` bij elke interactie. Dit bestand verwijst naar patronen en regels in de `Learnings/` en `System/` mappen, zodat Copilot context heeft over je werkwijze en technische beslissingen.
 
 ### Uitbreiden
-Voeg nieuwe inzichten toe aan `Learnings/` met het template uit `Templates/Learning.md`. Frontmatter is verplicht (`date`, `type`, `tags`, `confidence`, `source`). Copilot pikt ze automatisch op zodra je ernaar verwijst in `copilot-instructions.md`.
+Voeg nieuwe inzichten toe aan `Learnings/` met het template uit `Templates/Learning.md`. Vervang `{{date}}` met de datum (YYYY-MM-DD) en `{{title}}` met je titel. Frontmatter is verplicht:
+- **Learning files**: `date`, `type`, `tags`, `confidence`, `source`
+- **Project files**: `date`, `type`, `tags`, `status`, `priority`
+
+Copilot pikt ze automatisch op zodra je ernaar verwijst in `copilot-instructions.md`.
 
 ### Self-Learning
 agentBrain is zelflerend: Copilot schrijft automatisch nieuwe inzichten, patronen en troubleshooting fixes naar de juiste bestanden. Zie `System/Rules.md` voor het volledige protocol.

@@ -1,3 +1,9 @@
+---
+date: 2026-03-16
+type: system
+tags: [meta, copilot-config, entry-point]
+---
+
 # agentBrain — Copilot Instructions
 
 ## Wat is agentBrain?
@@ -22,6 +28,7 @@ Raadpleeg deze bij elke sessie:
 - Functie boven vorm
 - Iteratief: eerst werkend, dan mooi, dan geoptimaliseerd
 - Bij twijfel: vraag
+- Zie `System/Rules.md` voor gedetailleerde prioriteiten en werkstijl
 
 ## Self-Learning (VERPLICHT)
 
@@ -30,17 +37,20 @@ agentBrain leert actief mee. Na elke sessie waarin je iets nieuws ontdekt, **sch
 ### Triggers — wanneer schrijven
 | Trigger | Actie |
 |---------|-------|
-| Workaround gevonden | → `Learnings/Troubleshooting.md` |
-| Patroon 2x+ gezien | → `Learnings/Patterns.md` |
-| Nieuw technisch inzicht | → `Learnings/[categorie].md` (nieuw bestand) |
-| Nieuw project gestart | → `Projects/[naam].md` (template: `Templates/Project.md`) |
+| Workaround/fix gevonden | → `Learnings/Troubleshooting.md` — sectie toevoegen |
+| Patroon 2x+ herkend | → `Learnings/Patterns.md` — sectie toevoegen |
+| Patroon 1e keer gezien | → `Learnings/Patterns.md` met `confidence: low`, noteer "gezien 1x" |
+| Nieuw technisch inzicht | → `Learnings/[categorie].md` — nieuw bestand (PascalCase, bv. `macOS.md`) |
+| Nieuw project gestart | → `Projects/[naam].md` — gebruik `Templates/Project.md` |
 | Project milestone/beslissing | → bestaande `Projects/[naam].md` bijwerken |
-| Library/API beperking ontdekt | → `Learnings/Troubleshooting.md` |
-| Cross-platform fix | → `Learnings/Troubleshooting.md` |
+| Library/API beperking ontdekt | → `Learnings/Troubleshooting.md` — sectie toevoegen |
+| Cross-platform fix | → `Learnings/Troubleshooting.md` — sectie toevoegen |
 | Build/deploy configuratie | → `Learnings/[tool].md` of `Troubleshooting.md` |
 
 ### Format
-Gebruik altijd frontmatter:
+Gebruik altijd frontmatter. Per bestandstype:
+
+**Learning files** (`Learnings/*.md`):
 ```yaml
 ---
 date: YYYY-MM-DD
@@ -51,11 +61,22 @@ source: session
 ---
 ```
 
+**Project files** (`Projects/*.md`):
+```yaml
+---
+date: YYYY-MM-DD
+type: project
+tags: [relevante, tags]
+status: active/paused/done
+priority: high/medium/low
+---
+```
+
 ### Regels
 - **Update > nieuw** — bestaande notes bijwerken boven nieuwe maken
 - **Kort en bondig** — geen proza, alleen actionable info
 - **Bewijs vereist** — geen speculatie, alleen bevestigde feiten
-- **Patronen: minimaal 2x voorgekomen** voordat het een patroon is
+- **Patronen: minimaal 2x voorgekomen** voordat het een confirmed patroon is (1e keer: `confidence: low`)
 - **Troubleshooting: reproduceerbaar** — probleem + oplossing + context
 
 ### Wat NIET schrijven

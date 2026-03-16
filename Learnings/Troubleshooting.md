@@ -19,3 +19,7 @@ source: session
 ## Git
 - Pre-commit hook faalt: fix het probleem, maak NIEUWE commit (niet --amend, dat wijzigt vorige commit)
 - Authentication fails met GITHUB_TOKEN: `unset GITHUB_TOKEN` en gebruik keyring credentials
+
+## Gerelateerd
+- `Learnings/Patterns.md` — bevestigde patronen en best practices
+- `System/Rules.md` — wanneer en hoe troubleshooting opslaan
