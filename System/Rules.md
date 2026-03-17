@@ -73,8 +73,8 @@ Voordat je schrijft, check:
 
 ## Hoe schrijven
 - Frontmatter altijd verplicht. Per type:
-  - **Learning**: `date`, `type`, `tags`, `confidence`, `source`
-  - **Project**: `date`, `type`, `tags`, `status`, `priority`
+  - **Learning**: `date`, `type`, `tags`, `confidence`, `source` — tracking inzichten uit sessies/docs
+  - **Project**: `date`, `type`, `tags`, `status`, `priority` — tracking entiteiten, niet inzichten (daarom geen `confidence`/`source`)
 - Kort en bondig, geen proza
 - Update > nieuw — bestaande notes bijwerken boven nieuwe maken
 - Elke note moet actionable zijn
@@ -82,8 +82,11 @@ Voordat je schrijft, check:
 
 ## Kwaliteit
 - Patronen: minimaal 2x voorgekomen voor `confidence: high` (1e keer: schrijf met `confidence: low`, noteer "gezien 1x")
+- Patroon blijkt fout? → update `confidence: retracted` en voeg toe waarom het niet klopt
 - Troubleshooting: reproduceerbaar
 - Verouderde info: updaten of verwijderen
+- Staleness check: bij tool/library updates, review notes voor die tool. Notes ouder dan 6 maanden zonder updates verdienen een check
+- Project-inzicht wordt algemeen patroon? → verplaats naar `Learnings/Patterns.md`, laat cross-ref achter in project note
 
 ## Voorbeeld: Troubleshooting entry
 ```markdown
