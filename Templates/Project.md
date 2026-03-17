@@ -21,4 +21,4 @@ priority: medium
 
 
 ## Gerelateerd
-- <!-- Links naar gerelateerde projects, learnings, of externe docs -->
+- (Links naar gerelateerde projects, learnings, of externe docs)

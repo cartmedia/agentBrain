@@ -32,7 +32,7 @@ Raadpleeg deze bij elke sessie:
 
 ## Self-Learning (VERPLICHT)
 
-agentBrain leert actief mee. Na elke sessie waarin je iets nieuws ontdekt, **schrijf het op**.
+agentBrain leert actief mee. Wanneer je een workaround vindt, een patroon herkent, of een technisch inzicht opdoet, **schrijf het op naar de juiste file**. Dit is een expliciete actie — doe het aan het einde van de sessie of wanneer het inzicht zich voordoet.
 
 ### Triggers — wanneer schrijven
 | Trigger | Actie |
@@ -47,6 +47,11 @@ agentBrain leert actief mee. Na elke sessie waarin je iets nieuws ontdekt, **sch
 | Cross-platform fix | → `Learnings/Troubleshooting.md` — sectie toevoegen |
 | Build/deploy configuratie | → `Learnings/[tool].md` of `Troubleshooting.md` |
 
+### Categorieën voor nieuwe learning files
+Maak `Learnings/[Categorie].md` pas aan wanneer een relevant inzicht opduikt. Voorbeelden:
+`macOS.md`, `Node.md`, `Git.md`, `Docker.md`, `CSS.md`, `Swift.md`
+Naamconventie: PascalCase, kort, technologie-georiënteerd.
+
 ### Format
 Gebruik altijd frontmatter. Per bestandstype:
 
@@ -56,10 +61,12 @@ Gebruik altijd frontmatter. Per bestandstype:
 date: YYYY-MM-DD
 type: learning
 tags: [relevante, tags]
-confidence: high/medium/low
-source: session
+confidence: high/medium/low/retracted
+source: session/documentation
 ---
 ```
+- `confidence: retracted` = patroon bleek fout, noteer waarom
+- `source: session` = uit chat, `source: documentation` = uit docs
 
 **Project files** (`Projects/*.md`):
 ```yaml
@@ -71,6 +78,10 @@ status: active/paused/done
 priority: high/medium/low
 ---
 ```
+Projects tracken entiteiten, geen inzichten — daarom geen `confidence`/`source`.
+
+**System files** (`System/*.md`):
+`type: system` — alleen voor configuratie/regels. Niet zelf aanmaken.
 
 ### Regels
 - **Update > nieuw** — bestaande notes bijwerken boven nieuwe maken
