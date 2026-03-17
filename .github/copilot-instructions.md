@@ -95,3 +95,10 @@ Projects tracken entiteiten, geen inzichten — daarom geen `confidence`/`source
 - Info die al in een note staat
 - Sessie-specifieke tijdelijke state
 - Speculatie zonder bewijs
+
+## Skills
+agentBrain bevat skills die je kunt aanroepen via `/`:
+- `/save-learning` — sla een nieuw inzicht op in de juiste Learnings file
+- `/save-troubleshoot` — log een probleem + oplossing in Troubleshooting
+- `/project-update` — maak of werk een project note bij
+- `/brain-review` — review agentBrain op verouderde of incomplete notes
