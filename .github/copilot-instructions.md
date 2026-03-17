@@ -2,6 +2,7 @@
 date: 2026-03-16
 type: system
 tags: [meta, copilot-config, entry-point]
+id: fa302a57-d7cd-5211-bed8-ebaa80df1fe3
 ---
 
 # agentBrain — Copilot Instructions
