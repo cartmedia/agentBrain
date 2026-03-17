@@ -4,6 +4,7 @@ type: learning
 tags: [copilot, skills, vscode]
 confidence: high
 source: documentation
+id: fb436048-e3c1-55f8-aa85-821e216608ba
 ---
 
 # Copilot Agent Skills
@@ -19,5 +20,5 @@ VS Code documentatie: https://code.visualstudio.com/docs/copilot/customization/a
 Open standaard: agentskills.io
 
 ## Gerelateerd
-- `Learnings/Patterns.md` — code patronen
-- `Projects/_voorbeeld.md` — agentBrain project
+- [[Patterns]] — code patronen
+- [[_voorbeeld]] — agentBrain project voorbeeld

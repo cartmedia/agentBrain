@@ -28,7 +28,11 @@ Copilot pikt ze automatisch op zodra je ernaar verwijst in `copilot-instructions
 ### Self-Learning
 agentBrain is zelflerend: Copilot schrijft automatisch nieuwe inzichten, patronen en troubleshooting fixes naar de juiste bestanden. Zie `System/Rules.md` voor het volledige protocol.
 
+## Obsidian Vault
+agentBrain is ook een Obsidian vault. Open de map in Obsidian voor graph view, backlinks en zoeken. Wiki-links (`[[note-naam]]`) worden gebruikt in Gerelateerd secties. Elke note heeft een UUID5 `id` in frontmatter voor stabiele identificatie.
+
 ## Compatibiliteit
-- **VS Code Copilot** — primaire target (leest `.github/copilot-instructions.md`)
+- **VS Code Copilot** — primaire target (leest `.github/copilot-instructions.md` + skills)
+- **Obsidian** — open als vault voor graph view, backlinks, zoeken
 - **Cline / Continue** — ondersteunt MCP, kan direct bestanden lezen
 - **Cursor** — leest `.cursorrules` (niet meegeleverd, zelf aanmaken)

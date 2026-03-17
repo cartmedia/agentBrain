@@ -63,6 +63,7 @@ type: learning
 tags: [relevante, tags]
 confidence: high/medium/low/retracted
 source: session/documentation
+id: <UUID5>
 ---
 ```
 - `confidence: retracted` = patroon bleek fout, noteer waarom
@@ -76,9 +77,13 @@ type: project
 tags: [relevante, tags]
 status: active/paused/done
 priority: high/medium/low
+id: <UUID5>
 ---
 ```
 Projects tracken entiteiten, geen inzichten — daarom geen `confidence`/`source`.
+
+**UUID5 genereren**: namespace `a3b2c1d0-1234-5678-9abc-def012345678` + `agentBrain/[pad zonder extensie]`.
+**Wiki-links**: gebruik `[[note-naam]]` in Gerelateerd secties voor Obsidian graph view.
 
 **System files** (`System/*.md`):
 `type: system` — alleen voor configuratie/regels. Niet zelf aanmaken.

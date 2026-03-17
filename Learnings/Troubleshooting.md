@@ -4,6 +4,7 @@ type: learning
 tags: [troubleshooting, debugging]
 confidence: high
 source: session
+id: b73ceeeb-0d2b-571a-900a-f7fb814ea47f
 ---
 
 # Troubleshooting Log
@@ -21,5 +22,5 @@ source: session
 - Authentication fails met GITHUB_TOKEN: `unset GITHUB_TOKEN` en gebruik keyring credentials
 
 ## Gerelateerd
-- `Learnings/Patterns.md` — bevestigde patronen en best practices
-- `System/Rules.md` — wanneer en hoe troubleshooting opslaan
+- [[Patterns]] — bevestigde patronen en best practices
+- [[Rules]] — wanneer en hoe troubleshooting opslaan

@@ -4,6 +4,7 @@ type: learning
 tags: [git, authentication]
 confidence: high
 source: session
+id: fcdff10c-d633-5a25-a427-0030d4d20361
 ---
 
 # Git GITHUB_TOKEN conflict
@@ -18,5 +19,5 @@ Komt voor wanneer een CI/CD tool of andere app een GITHUB_TOKEN heeft gezet die 
 Meerdere sessies bevestigd (maart 2026). Fix: `GITHUB_TOKEN="" git push` of `unset GITHUB_TOKEN`.
 
 ## Gerelateerd
-- `Learnings/Troubleshooting.md` — Git sectie
-- `Learnings/Patterns.md` — Git patronen
+- [[Troubleshooting]] — Git sectie
+- [[Patterns]] — Git patronen

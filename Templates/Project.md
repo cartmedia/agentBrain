@@ -4,6 +4,7 @@ type: project
 tags: []
 status: active
 priority: medium
+id: {{uuid5}}
 ---
 
 # {{title}}
@@ -21,4 +22,4 @@ priority: medium
 
 
 ## Gerelateerd
-- (Links naar gerelateerde projects, learnings, of externe docs)
+- [[note-naam]] (gebruik wiki-links voor Obsidian graph view)

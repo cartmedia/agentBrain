@@ -2,6 +2,7 @@
 date: 2026-03-16
 type: system
 tags: [meta, rules]
+id: d677f5c9-ec8c-57fa-86cf-5ec8b42b883f
 ---
 
 # agentBrain Regels
@@ -73,8 +74,10 @@ Voordat je schrijft, check:
 
 ## Hoe schrijven
 - Frontmatter altijd verplicht. Per type:
-  - **Learning**: `date`, `type`, `tags`, `confidence`, `source` — tracking inzichten uit sessies/docs
-  - **Project**: `date`, `type`, `tags`, `status`, `priority` — tracking entiteiten, niet inzichten (daarom geen `confidence`/`source`)
+  - **Learning**: `date`, `type`, `tags`, `confidence`, `source`, `id` — tracking inzichten uit sessies/docs
+  - **Project**: `date`, `type`, `tags`, `status`, `priority`, `id` — tracking entiteiten, niet inzichten (daarom geen `confidence`/`source`)
+- **`id`**: UUID5 hash, namespace `a3b2c1d0-1234-5678-9abc-def012345678` + `agentBrain/[pad]` (zonder extensie)
+- **Wiki-links**: gebruik `[[note-naam]]` in Gerelateerd secties (voor Obsidian graph view)
 - Kort en bondig, geen proza
 - Update > nieuw — bestaande notes bijwerken boven nieuwe maken
 - Elke note moet actionable zijn
@@ -86,7 +89,7 @@ Voordat je schrijft, check:
 - Troubleshooting: reproduceerbaar
 - Verouderde info: updaten of verwijderen
 - Staleness check: bij tool/library updates, review notes voor die tool. Notes ouder dan 6 maanden zonder updates verdienen een check
-- Project-inzicht wordt algemeen patroon? → verplaats naar `Learnings/Patterns.md`, laat cross-ref achter in project note
+- Project-inzicht wordt algemeen patroon? → verplaats naar [[Patterns]], laat cross-ref achter in project note
 
 ## Voorbeeld: Troubleshooting entry
 ```markdown

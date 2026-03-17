@@ -4,6 +4,7 @@ type: learning
 tags: [meta, patterns]
 confidence: high
 source: session
+id: 3e7b2475-b294-5c69-9273-e6cae31ca5f3
 ---
 
 # Terugkerende Patronen
@@ -31,5 +32,5 @@ source: session
 - Idempotente operaties waar mogelijk
 
 ## Gerelateerd
-- `Learnings/Troubleshooting.md` — anti-patronen en bekende valkuilen
-- `System/Rules.md` — wanneer en hoe patronen opslaan
+- [[Troubleshooting]] — anti-patronen en bekende valkuilen
+- [[Rules]] — wanneer en hoe patronen opslaan

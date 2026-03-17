@@ -4,6 +4,7 @@ type: learning
 tags: []
 confidence: high/medium/low/retracted
 source: session/documentation
+id: {{uuid5}}
 ---
 
 # {{title}}
@@ -18,4 +19,4 @@ source: session/documentation
 (Hoe weet je dit? Link naar sessie, docs, of experiment.)
 
 ## Gerelateerd
-- (Links naar gerelateerde notes)
+- [[note-naam]] (gebruik wiki-links voor Obsidian graph view)

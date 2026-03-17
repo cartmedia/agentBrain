@@ -4,6 +4,7 @@ type: project
 tags: [cli, knowledge-management]
 status: active
 priority: high
+id: d2cef738-5b47-5adf-8447-5bc73f708ea1
 ---
 
 # agentBrain
@@ -25,5 +26,5 @@ Portable, zelflerend kennissysteem voor VS Code Copilot. Persisteert inzichten d
 - Frontmatter inconsistentie tussen learning/project types → gedocumenteerd als bewuste keuze
 
 ## Gerelateerd
-- `System/Rules.md` — self-learning protocol
-- `Learnings/Patterns.md` — code patronen
+- [[Rules]] — self-learning protocol
+- [[Patterns]] — code patronen
