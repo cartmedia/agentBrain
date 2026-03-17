@@ -15,6 +15,7 @@ Raadpleeg deze bij elke sessie:
 - Bekende patronen: `Learnings/Patterns.md`
 - Troubleshooting: `Learnings/Troubleshooting.md`
 - Projectcontext: `Projects/`
+- Gebruikersvoorkeuren: `User Preferences/`
 - Regels & self-learning: `System/Rules.md`
 
 ## Stijl

@@ -4,9 +4,15 @@ Portable kennisbank voor VS Code Copilot. Plaats deze map in je project root. Al
 
 ## Structuur
 - `.github/copilot-instructions.md` — Copilot leest dit automatisch
+- `.github/skills/` — Agent skills (slash commands)
 - `Learnings/` — Technische inzichten, patronen, troubleshooting
+- `Projects/` — Project notes en voortgang
+- `Sessions/` — Sessie-logs per werkperiode
+- `Daily Notes/` — Dagelijkse notities (auto-gegenereerd via script)
+- `User Preferences/` — Werkstijl, design, tech-stack, communicatie
 - `Templates/` — Templates voor nieuwe notes
 - `System/` — Regels en configuratie
+- `scripts/` — Helper scripts (daily note update)
 
 ## Gebruik
 
