@@ -10,17 +10,16 @@ id: b73ceeeb-0d2b-571a-900a-f7fb814ea47f
 # Troubleshooting Log
 
 ## macOS
-- `Write` tool kan CRLF line endings toevoegen → check met `file script.sh`, fix met `perl -pi -e 's/\r$//'`
-- macOS native rsync is oud (2.6.9) → gebruik Homebrew versie als beschikbaar
+- `Write` tool can add CRLF line endings -> check with `file script.sh`, fix with `perl -pi -e 's/\r$//'`
 
 ## Node.js
-- nvm in non-interactive shells: `.bashrc`/`.zshrc` wordt niet geladen → `source "$HOME/.nvm/nvm.sh"` expliciet laden
-- `npm install` traag: check disk I/O, probeer `--prefer-offline`
+- nvm in non-interactive shells: `.bashrc`/`.zshrc` is not loaded -> `source "$HOME/.nvm/nvm.sh"` must be loaded explicitly
+- `npm install` slow: check disk I/O, try `--prefer-offline`
 
 ## Git
-- Pre-commit hook faalt: fix het probleem, maak NIEUWE commit (niet --amend, dat wijzigt vorige commit)
-- Authentication fails met GITHUB_TOKEN: `unset GITHUB_TOKEN` en gebruik keyring credentials
+- Pre-commit hook fails: fix the problem, make a NEW commit (not --amend, that modifies the previous commit)
+- Authentication fails with GITHUB_TOKEN: `unset GITHUB_TOKEN` and use keyring credentials
 
-## Gerelateerd
-- [[Patterns]] — bevestigde patronen en best practices
-- [[Rules]] — wanneer en hoe troubleshooting opslaan
+## Related
+- [[Patterns]] — confirmed patterns and best practices
+- [[Rules]] — when and how to save troubleshooting entries

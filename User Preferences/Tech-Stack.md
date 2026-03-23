@@ -7,32 +7,32 @@ id: 4b2d6e8f-9a1c-5d3e-7f5a-2c4e6a8b0d1f
 
 # Tech Stack & Tooling
 
+> **Note:** This is an example file. Customize it to reflect your own tech stack and tooling.
+
 ## Platform
-- macOS (Apple Silicon) als primaire ontwikkelomgeving
-- Homebrew voor package management
+- Primary development OS (e.g. macOS, Linux, Windows)
+- Package manager (e.g. Homebrew, apt, winget)
 
-## Talen & Frameworks
-- **Flutter + Dart** — cross-platform apps (met Riverpod)
-- **C++** — native engines, audio, FFI bindings
-- **Bash** — CLI tools, scripting
-- **Bun + Hono** — web backends (lichtgewicht)
-- **Vanilla HTML/CSS/JS** — web frontends (geen React tenzij nodig)
+## Languages & Frameworks
+- List your preferred languages and frameworks
+- Include state management, testing frameworks, etc.
 
-## Infrastructuur
-- **Synology NAS** — hosting, storage, Docker
-- **Portainer** — container management
-- **Traefik** — reverse proxy
-- **PocketBase** — backend/database
+## Infrastructure
+- Hosting and deployment targets
+- Container orchestration
+- Reverse proxy / load balancer
+- Database preferences
 
 ## Git & Hosting
-- **Gitea** — primaire git server (self-hosted)
-- **GitHub** — secondaire remote (private repos)
-- Geen App Store distributie — direct via DMG/installer
+- Primary git hosting (e.g. GitHub, GitLab, Gitea)
+- Branching strategy
+- Distribution method (e.g. app stores, direct download, SaaS)
 
 ## Design
-- **FLUX Design System** — eigen design system, framework-agnostisch
-- BEM conventies, OKLCH kleuren, design tokens
+- Design system or UI framework
+- Component conventions
+- Color and token strategy
 
-## Kennis & Documentatie
-- **Obsidian** — kennisbeheer
-- **agentBrain** — gestructureerde opslag van insights en projectkennis
+## Knowledge & Documentation
+- Documentation tools (e.g. Obsidian, Notion, Confluence)
+- Knowledge management approach

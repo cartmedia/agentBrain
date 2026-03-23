@@ -1,50 +1,50 @@
 ---
 name: brain-review
-description: Review agentBrain op verouderde notes, ontbrekende info, en kwaliteit. Gebruik periodiek (maandelijks) of wanneer de kennisbank onderhoud nodig heeft.
-argument-hint: Optioneel focus-gebied (bv. "Learnings" of "Projects")
+description: Review agentBrain for outdated notes, missing info, and quality. Use periodically (monthly) or when the knowledge base needs maintenance.
+argument-hint: Optional focus area (e.g. "Learnings" or "Projects")
 ---
 
 # Brain Review
 
-Periodieke review van agentBrain om de kennisbank gezond te houden.
+Periodic review of agentBrain to keep the knowledge base healthy.
 
-## Stappen
+## Steps
 
-1. **Inventariseer alle files:**
-   - Lees alle bestanden in `Learnings/` en `Projects/`
-   - Noteer het aantal files, laatste update-datums, en confidence levels
+1. **Inventory all files:**
+   - Read all files in `Learnings/` and `Projects/`
+   - Note the number of files, last update dates, and confidence levels
 
 2. **Check staleness:**
-   - Notes ouder dan 6 maanden zonder updates → markeer voor review
-   - Technologie-gerelateerde notes → check of de tool/library versie nog actueel is
-   - `confidence: low` entries → zijn ze inmiddels 2x+ bevestigd? Update naar `high`
+   - Notes older than 6 months without updates -> flag for review
+   - Technology-related notes -> check if the tool/library version is still current
+   - `confidence: low` entries -> have they been confirmed 2x+ since? Update to `high`
 
-3. **Check kwaliteit per note:**
-   - Heeft het frontmatter met alle verplichte velden?
+3. **Check quality per note:**
+   - Does it have frontmatter with all required fields?
      - Learning: `date`, `type`, `tags`, `confidence`, `source`
      - Project: `date`, `type`, `tags`, `status`, `priority`
-   - Is het actionable? (niet alleen "interessant")
-   - Is het kort en bondig? (geen overbodige tekst)
-   - Heeft het een `## Gerelateerd` sectie met relevante links?
+   - Is it actionable? (not just "interesting")
+   - Is it concise? (no unnecessary text)
+   - Does it have a `## Related` section with relevant links?
 
-4. **Check patronen:**
-   - Staan er entries in `Troubleshooting.md` die eigenlijk patronen zijn? → verplaats naar `Patterns.md`
-   - Zijn er `confidence: retracted` entries die verwijderd kunnen worden?
-   - Zijn er dubbele entries?
+4. **Check patterns:**
+   - Are there entries in `Troubleshooting.md` that are actually patterns? -> move to `Patterns.md`
+   - Are there `confidence: retracted` entries that can be removed?
+   - Are there duplicate entries?
 
-5. **Check projecten:**
-   - Zijn `status: active` projecten nog actief?
-   - Zijn afgeronde projecten op `status: done` gezet?
-   - Missen er projecten die wel bestaan maar geen note hebben?
+5. **Check projects:**
+   - Are `status: active` projects still active?
+   - Are completed projects set to `status: done`?
+   - Are there projects that exist but have no note?
 
-6. **Rapporteer:**
-   - Aantal notes per categorie
-   - Verouderde notes (ouder dan 6 maanden)
-   - Ontbrekende frontmatter
-   - Aanbevelingen voor opschoning
-   - Eventuele fixes direct doorvoeren met bevestiging
+6. **Report:**
+   - Number of notes per category
+   - Outdated notes (older than 6 months)
+   - Missing frontmatter
+   - Recommendations for cleanup
+   - Apply any fixes directly with confirmation
 
-## Referenties
-- Regels: `System/Rules.md`
-- Patronen: `Learnings/Patterns.md`
+## References
+- Rules: `System/Rules.md`
+- Patterns: `Learnings/Patterns.md`
 - Troubleshooting: `Learnings/Troubleshooting.md`

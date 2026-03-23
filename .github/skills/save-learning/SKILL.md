@@ -1,46 +1,46 @@
 ---
 name: save-learning
-description: Sla een nieuw technisch inzicht op in agentBrain. Gebruik wanneer je een patroon, workaround, of technisch feit ontdekt dat waardevol is voor toekomstige sessies.
-argument-hint: Beschrijf het inzicht dat je wilt opslaan
+description: Save a new technical insight to agentBrain. Use when you discover a pattern, workaround, or technical fact that is valuable for future sessions.
+argument-hint: Describe the insight you want to save
 ---
 
 # Save Learning
 
-Sla een nieuw inzicht op in agentBrain zodat het permanent beschikbaar blijft.
+Save a new insight to agentBrain so it remains permanently available.
 
-## Stappen
+## Steps
 
-1. **Bepaal het type inzicht:**
-   - Terugkerend patroon (2x+ gezien) → voeg toe aan `Learnings/Patterns.md`
-   - Patroon 1e keer gezien → voeg toe aan `Learnings/Patterns.md` met `confidence: low`, noteer "gezien 1x"
-   - Nieuw technisch inzicht → maak `Learnings/[Categorie].md` aan (PascalCase, bv. `macOS.md`, `Node.md`)
+1. **Determine the type of insight:**
+   - Recurring pattern (seen 2x+) -> add to `Learnings/Patterns.md`
+   - Pattern seen 1st time -> add to `Learnings/Patterns.md` with `confidence: low`, note "seen 1x"
+   - New technical insight -> create `Learnings/[Category].md` (PascalCase, e.g. `macOS.md`, `Node.md`)
 
-2. **Check of het al bestaat:**
-   - Lees de relevante file
-   - Als het inzicht er al staat → UPDATE de bestaande entry
-   - Als het nieuw is → voeg een nieuwe sectie toe
+2. **Check if it already exists:**
+   - Read the relevant file
+   - If the insight is already there -> UPDATE the existing entry
+   - If it is new -> add a new section
 
-3. **Schrijf met het juiste format:**
-   - Bestaand bestand bijwerken: voeg een `## Sectie` toe
-   - Nieuw bestand aanmaken: gebruik dit frontmatter:
+3. **Write with the correct format:**
+   - Updating an existing file: add a `## Section`
+   - Creating a new file: use this frontmatter:
      ```yaml
      ---
      date: YYYY-MM-DD
      type: learning
-     tags: [relevante, tags]
+     tags: [relevant, tags]
      confidence: high/medium/low/retracted
      source: session/documentation
      ---
      ```
 
-4. **Valideer:**
-   - Is het actionable? (niet alleen "interessant")
-   - Is het bewezen? (geen speculatie)
-   - Is het kort en bondig? (geen proza)
+4. **Validate:**
+   - Is it actionable? (not just "interesting")
+   - Is it proven? (no speculation)
+   - Is it concise? (no prose)
 
-5. **Bevestig aan de gebruiker** wat je hebt opgeslagen en waar.
+5. **Confirm to the user** what you saved and where.
 
-## Referenties
+## References
 - Template: `Templates/Learning.md`
-- Bestaande patronen: `Learnings/Patterns.md`
-- Regels: `System/Rules.md`
+- Existing patterns: `Learnings/Patterns.md`
+- Rules: `System/Rules.md`

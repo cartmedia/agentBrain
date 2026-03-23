@@ -9,16 +9,16 @@ id: fb436048-e3c1-55f8-aa85-821e216608ba
 
 # Copilot Agent Skills
 
-## Inzicht
-VS Code Copilot ondersteunt agent skills via open standaard (agentskills.io). Skills zijn on-demand geladen workflows in `.github/skills/[naam]/SKILL.md` met YAML frontmatter (`name`, `description`, optioneel `argument-hint`, `user-invocable`, `disable-model-invocation`). Progressive loading: metadata → instructies → resources.
+## Insight
+VS Code Copilot supports agent skills via an open standard (agentskills.io). Skills are on-demand loaded workflows in `.github/skills/[name]/SKILL.md` with YAML frontmatter (`name`, `description`, optionally `argument-hint`, `user-invocable`, `disable-model-invocation`). Progressive loading: metadata -> instructions -> resources.
 
 ## Context
-Relevant bij het opzetten van gestructureerde workflows voor Copilot. Skills vs custom instructions: skills zijn taak-specifiek en on-demand, instructions zijn altijd geladen en globaal.
+Relevant when setting up structured workflows for Copilot. Skills vs custom instructions: skills are task-specific and on-demand, instructions are always loaded and global.
 
-## Bewijs
-VS Code documentatie: https://code.visualstudio.com/docs/copilot/customization/agent-skills
-Open standaard: agentskills.io
+## Evidence
+VS Code documentation: https://code.visualstudio.com/docs/copilot/customization/agent-skills
+Open standard: agentskills.io
 
-## Gerelateerd
-- [[Patterns]] — code patronen
-- [[_voorbeeld]] — agentBrain project voorbeeld
+## Related
+- [[Patterns]] — code patterns
+- [[_example]] — example learning note

@@ -9,17 +9,17 @@ id: {{uuid5}}
 
 # {{title}}
 
-## Doel
+## Goal
 
 
 ## Setup
 
 
-## Voortgang
+## Progress
 
 
-## Issues & Oplossingen
+## Issues & Solutions
 
 
-## Gerelateerd
-- [[note-naam]] (gebruik wiki-links voor Obsidian graph view)
+## Related
+- [[note-name]] (use wiki-links for Obsidian graph view)

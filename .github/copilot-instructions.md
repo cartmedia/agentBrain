@@ -7,105 +7,104 @@ id: fa302a57-d7cd-5211-bed8-ebaa80df1fe3
 
 # agentBrain — Copilot Instructions
 
-## Wat is agentBrain?
-agentBrain is een persistent extern geheugen. Het groeit mee met elke sessie.
-Copilot's interne memories vervallen na 28 dagen — agentBrain is permanent.
+## What is agentBrain?
+agentBrain is a persistent external memory. It grows with every session.
+Copilot's internal memories expire after 28 days — agentBrain is permanent.
 
-## Kennisbank
-Raadpleeg deze bij elke sessie:
-- Bekende patronen: `Learnings/Patterns.md`
+## Knowledge Base
+Consult these at the start of every session:
+- Known patterns: `Learnings/Patterns.md`
 - Troubleshooting: `Learnings/Troubleshooting.md`
-- Projectcontext: `Projects/`
-- Gebruikersvoorkeuren: `User Preferences/`
-- Regels & self-learning: `System/Rules.md`
+- Project context: `Projects/`
+- User preferences: `User Preferences/`
+- Rules & self-learning: `System/Rules.md`
 
-## Stijl
-- Nederlands voor communicatie, technische termen in het Engels OK
-- Kort en bondig — geen overbodige uitleg
-- Minimalistisch: eenvoudigste oplossing die werkt wint altijd
-- Geen over-engineering, geen features "voor het geval dat"
+## Style
+- Concise — no unnecessary explanations
+- Minimalist: the simplest solution that works always wins
+- No over-engineering, no features "just in case"
 
 ## Code Conventions
-- Clean code, geen bloat
-- Functie boven vorm
-- Iteratief: eerst werkend, dan mooi, dan geoptimaliseerd
-- Bij twijfel: vraag
-- Zie `System/Rules.md` voor gedetailleerde prioriteiten en werkstijl
+- Clean code, no bloat
+- Function over form
+- Iterative: first make it work, then make it clean, then optimize
+- When in doubt: ask
+- See `System/Rules.md` for detailed priorities and work style
 
-## Self-Learning (VERPLICHT)
+## Self-Learning (REQUIRED)
 
-agentBrain leert actief mee. Wanneer je een workaround vindt, een patroon herkent, of een technisch inzicht opdoet, **schrijf het op naar de juiste file**. Dit is een expliciete actie — doe het aan het einde van de sessie of wanneer het inzicht zich voordoet.
+agentBrain actively learns. When you find a workaround, recognize a pattern, or discover a technical insight, **write it to the appropriate file**. This is an explicit action — do it at the end of the session or when the insight occurs.
 
-### Triggers — wanneer schrijven
-| Trigger | Actie |
-|---------|-------|
-| Workaround/fix gevonden | → `Learnings/Troubleshooting.md` — sectie toevoegen |
-| Patroon 2x+ herkend | → `Learnings/Patterns.md` — sectie toevoegen |
-| Patroon 1e keer gezien | → `Learnings/Patterns.md` met `confidence: low`, noteer "gezien 1x" |
-| Nieuw technisch inzicht | → `Learnings/[categorie].md` — nieuw bestand (PascalCase, bv. `macOS.md`) |
-| Nieuw project gestart | → `Projects/[naam].md` — gebruik `Templates/Project.md` |
-| Project milestone/beslissing | → bestaande `Projects/[naam].md` bijwerken |
-| Library/API beperking ontdekt | → `Learnings/Troubleshooting.md` — sectie toevoegen |
-| Cross-platform fix | → `Learnings/Troubleshooting.md` — sectie toevoegen |
-| Build/deploy configuratie | → `Learnings/[tool].md` of `Troubleshooting.md` |
+### Triggers — when to write
+| Trigger | Action |
+|---------|--------|
+| Workaround/fix found | -> `Learnings/Troubleshooting.md` — add section |
+| Pattern recognized 2x+ | -> `Learnings/Patterns.md` — add section |
+| Pattern seen 1st time | -> `Learnings/Patterns.md` with `confidence: low`, note "seen 1x" |
+| New technical insight | -> `Learnings/[category].md` — new file (PascalCase, e.g. `macOS.md`) |
+| New project started | -> `Projects/[name].md` — use `Templates/Project.md` |
+| Project milestone/decision | -> existing `Projects/[name].md` update |
+| Library/API limitation discovered | -> `Learnings/Troubleshooting.md` — add section |
+| Cross-platform fix | -> `Learnings/Troubleshooting.md` — add section |
+| Build/deploy configuration | -> `Learnings/[tool].md` or `Troubleshooting.md` |
 
-### Categorieën voor nieuwe learning files
-Maak `Learnings/[Categorie].md` pas aan wanneer een relevant inzicht opduikt. Voorbeelden:
+### Categories for new learning files
+Create `Learnings/[Category].md` only when a relevant insight comes up. Examples:
 `macOS.md`, `Node.md`, `Git.md`, `Docker.md`, `CSS.md`, `Swift.md`
-Naamconventie: PascalCase, kort, technologie-georiënteerd.
+Naming convention: PascalCase, short, technology-oriented.
 
 ### Format
-Gebruik altijd frontmatter. Per bestandstype:
+Always use frontmatter. Per file type:
 
 **Learning files** (`Learnings/*.md`):
 ```yaml
 ---
 date: YYYY-MM-DD
 type: learning
-tags: [relevante, tags]
+tags: [relevant, tags]
 confidence: high/medium/low/retracted
 source: session/documentation
 id: <UUID5>
 ---
 ```
-- `confidence: retracted` = patroon bleek fout, noteer waarom
-- `source: session` = uit chat, `source: documentation` = uit docs
+- `confidence: retracted` = pattern turned out to be wrong, note why
+- `source: session` = from chat, `source: documentation` = from docs
 
 **Project files** (`Projects/*.md`):
 ```yaml
 ---
 date: YYYY-MM-DD
 type: project
-tags: [relevante, tags]
+tags: [relevant, tags]
 status: active/paused/done
 priority: high/medium/low
 id: <UUID5>
 ---
 ```
-Projects tracken entiteiten, geen inzichten — daarom geen `confidence`/`source`.
+Projects track entities, not insights — hence no `confidence`/`source`.
 
-**UUID5 genereren**: namespace `a3b2c1d0-1234-5678-9abc-def012345678` + `agentBrain/[pad zonder extensie]`.
-**Wiki-links**: gebruik `[[note-naam]]` in Gerelateerd secties voor Obsidian graph view.
+**UUID5 generation**: namespace `a3b2c1d0-1234-5678-9abc-def012345678` + `agentBrain/[path without extension]`.
+**Wiki-links**: use `[[note-name]]` in Related sections for Obsidian graph view.
 
 **System files** (`System/*.md`):
-`type: system` — alleen voor configuratie/regels. Niet zelf aanmaken.
+`type: system` — only for configuration/rules. Do not create these yourself.
 
-### Regels
-- **Update > nieuw** — bestaande notes bijwerken boven nieuwe maken
-- **Kort en bondig** — geen proza, alleen actionable info
-- **Bewijs vereist** — geen speculatie, alleen bevestigde feiten
-- **Patronen: minimaal 2x voorgekomen** voordat het een confirmed patroon is (1e keer: `confidence: low`)
-- **Troubleshooting: reproduceerbaar** — probleem + oplossing + context
+### Rules
+- **Update > new** — update existing notes rather than creating new ones
+- **Concise** — no prose, only actionable info
+- **Evidence required** — no speculation, only confirmed facts
+- **Patterns: seen at least 2x** before it becomes a confirmed pattern (1st time: `confidence: low`)
+- **Troubleshooting: reproducible** — problem + solution + context
 
-### Wat NIET schrijven
-- Triviale/eenmalige info
-- Info die al in een note staat
-- Sessie-specifieke tijdelijke state
-- Speculatie zonder bewijs
+### What NOT to write
+- Trivial/one-off information
+- Information already in a note
+- Session-specific temporary state
+- Speculation without evidence
 
 ## Skills
-agentBrain bevat skills die je kunt aanroepen via `/`:
-- `/save-learning` — sla een nieuw inzicht op in de juiste Learnings file
-- `/save-troubleshoot` — log een probleem + oplossing in Troubleshooting
-- `/project-update` — maak of werk een project note bij
-- `/brain-review` — review agentBrain op verouderde of incomplete notes
+agentBrain includes skills you can invoke via `/`:
+- `/save-learning` — save a new insight to the appropriate Learnings file
+- `/save-troubleshoot` — log a problem + solution in Troubleshooting
+- `/project-update` — create or update a project note
+- `/brain-review` — review agentBrain for outdated or incomplete notes

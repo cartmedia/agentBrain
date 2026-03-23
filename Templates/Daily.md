@@ -6,10 +6,10 @@ tags: [daily]
 
 # {{date}}
 
-## Sessies
+## Sessions
 -
 
-## Notities
+## Notes
 -
 
 ## Links

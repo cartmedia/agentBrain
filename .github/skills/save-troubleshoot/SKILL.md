@@ -1,42 +1,42 @@
 ---
 name: save-troubleshoot
-description: Log een probleem en oplossing in agentBrain Troubleshooting. Gebruik wanneer je een bug fixt, een workaround vindt, of een cross-platform issue oplost.
-argument-hint: Beschrijf het probleem en de oplossing
+description: Log a problem and solution in agentBrain Troubleshooting. Use when you fix a bug, find a workaround, or solve a cross-platform issue.
+argument-hint: Describe the problem and the solution
 ---
 
 # Save Troubleshoot
 
-Log een probleem + oplossing in `Learnings/Troubleshooting.md` zodat het niet opnieuw onderzocht hoeft te worden.
+Log a problem + solution in `Learnings/Troubleshooting.md` so it does not need to be researched again.
 
-## Stappen
+## Steps
 
-1. **Lees `Learnings/Troubleshooting.md`** om de huidige structuur te begrijpen.
+1. **Read `Learnings/Troubleshooting.md`** to understand the current structure.
 
-2. **Bepaal de sectie:**
-   - Bestaande sectie (bv. `## macOS`, `## Node.js`, `## Git`) → voeg entry toe
-   - Nieuwe categorie nodig → maak een nieuwe `## Sectie` aan
+2. **Determine the section:**
+   - Existing section (e.g. `## macOS`, `## Node.js`, `## Git`) -> add entry
+   - New category needed -> create a new `## Section`
 
-3. **Schrijf de entry in dit format:**
+3. **Write the entry in this format:**
    ```markdown
-   ## [Platform/Tool] — [Korte beschrijving]
-   - **Probleem**: wat ging er mis
-   - **Oorzaak**: waarom het gebeurde
-   - **Oplossing**: exacte fix (met code als relevant)
-   - **Context**: wanneer dit voorkomt
+   ## [Platform/Tool] — [Short description]
+   - **Problem**: what went wrong
+   - **Cause**: why it happened
+   - **Solution**: exact fix (with code if relevant)
+   - **Context**: when this occurs
    ```
 
-4. **Als het een library/API beperking is**, vermeld:
-   - Welke versie van de library/API
-   - Of er een upstream fix verwacht wordt
-   - Workaround met codevoorbeeld
+4. **If it is a library/API limitation**, include:
+   - Which version of the library/API
+   - Whether an upstream fix is expected
+   - Workaround with code example
 
-5. **Valideer:**
-   - Is het reproduceerbaar?
-   - Is de oplossing getest en bevestigd?
-   - Staat het er niet al?
+5. **Validate:**
+   - Is it reproducible?
+   - Is the solution tested and confirmed?
+   - Is it not already documented?
 
-6. **Bevestig aan de gebruiker** wat je hebt gelogd.
+6. **Confirm to the user** what you logged.
 
-## Referenties
+## References
 - Troubleshooting log: `Learnings/Troubleshooting.md`
-- Regels: `System/Rules.md`
+- Rules: `System/Rules.md`

@@ -9,14 +9,14 @@ id: {{uuid5}}
 
 # {{title}}
 
-## Inzicht
-(Wat heb je geleerd? Kort en actionable.)
+## Insight
+(What did you learn? Keep it short and actionable.)
 
 ## Context
-(Wanneer is dit relevant? Welk project/technologie?)
+(When is this relevant? Which project/technology?)
 
-## Bewijs
-(Hoe weet je dit? Link naar sessie, docs, of experiment.)
+## Evidence
+(How do you know this? Link to session, docs, or experiment.)
 
-## Gerelateerd
-- [[note-naam]] (gebruik wiki-links voor Obsidian graph view)
+## Related
+- [[note-name]] (use wiki-links for Obsidian graph view)

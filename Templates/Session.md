@@ -8,19 +8,19 @@ duration: ""
 id: {{uuid5}}
 ---
 
-# Sessie {{date}}
+# Session {{date}}
 
-## Wat is er gedaan
+## What was done
 -
 
-## Beslissingen
+## Decisions
 -
 
-## Geleerde lessen
+## Lessons learned
 -
 
 ## Open items
 -
 
-## Gerelateerd
-- [[note-naam]]
+## Related
+- [[note-name]]
