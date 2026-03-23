@@ -2,6 +2,12 @@
 name: save-learning
 description: Save a new technical insight to agentBrain. Use when you discover a pattern, workaround, or technical fact that is valuable for future sessions.
 argument-hint: Describe the insight you want to save
+user-invocable: true
+resources:
+  - Learnings/Patterns.md
+  - Learnings/Troubleshooting.md
+  - Templates/Learning.md
+  - System/Rules.md
 ---
 
 # Save Learning

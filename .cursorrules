@@ -1,0 +1,21 @@
+# agentBrain
+
+You have access to a persistent knowledge base in this repository.
+
+## At session start, read:
+- `Learnings/Patterns.md` -- known patterns
+- `Learnings/Troubleshooting.md` -- known problems
+- `System/Rules.md` -- self-learning protocol
+
+## During session, write new insights:
+- Workaround found -> add to `Learnings/Troubleshooting.md`
+- Pattern recognized -> add to `Learnings/Patterns.md`
+- New insight -> create `Learnings/[Category].md`
+
+## Style
+- Concise, no bloat
+- Simplest solution that works
+- Iterative: working -> clean -> optimized
+
+## Frontmatter required on all notes
+See `System/Rules.md` for format specifications.

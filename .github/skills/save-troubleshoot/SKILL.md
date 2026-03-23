@@ -2,6 +2,10 @@
 name: save-troubleshoot
 description: Log a problem and solution in agentBrain Troubleshooting. Use when you fix a bug, find a workaround, or solve a cross-platform issue.
 argument-hint: Describe the problem and the solution
+user-invocable: true
+resources:
+  - Learnings/Troubleshooting.md
+  - System/Rules.md
 ---
 
 # Save Troubleshoot

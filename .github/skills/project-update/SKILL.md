@@ -2,6 +2,11 @@
 name: project-update
 description: Create a new project note or update an existing one in agentBrain. Use for a new project, milestone, architecture decision, or status change.
 argument-hint: Project name and what you want to record
+user-invocable: true
+resources:
+  - Templates/Project.md
+  - Projects/_example.md
+  - System/Rules.md
 ---
 
 # Project Update

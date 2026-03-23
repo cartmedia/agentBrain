@@ -2,6 +2,11 @@
 name: brain-review
 description: Review agentBrain for outdated notes, missing info, and quality. Use periodically (monthly) or when the knowledge base needs maintenance.
 argument-hint: Optional focus area (e.g. "Learnings" or "Projects")
+user-invocable: true
+resources:
+  - System/Rules.md
+  - Learnings/Patterns.md
+  - Learnings/Troubleshooting.md
 ---
 
 # Brain Review
