@@ -205,6 +205,47 @@ else
   echo -e "${YELLOW}Skip${NC}    Cline (not installed)"
 fi
 
+# ── OpenCode ──
+OPENCODE_CONFIG="$HOME/.config/opencode/opencode.json"
+if [ -d "/Applications/OpenCode.app" ] || command -v opencode &>/dev/null; then
+  mkdir -p "$(dirname "${OPENCODE_CONFIG}")"
+  if [ -f "${OPENCODE_CONFIG}" ] && grep -q "agentBrain" "${OPENCODE_CONFIG}" 2>/dev/null; then
+    echo -e "${YELLOW}Exists${NC}  OpenCode pointer in opencode.json"
+  else
+    if [ -f "${OPENCODE_CONFIG}" ]; then
+      # Add instructions to existing config
+      if python3 -c "
+import json, sys
+with open('${OPENCODE_CONFIG}') as f:
+    cfg = json.load(f)
+instructions = cfg.get('instructions', [])
+brain_files = ['${VAULT}/System/Rules.md', '${VAULT}/Learnings/Patterns.md', '${VAULT}/Learnings/Troubleshooting.md']
+for bf in brain_files:
+    if bf not in instructions:
+        instructions.append(bf)
+cfg['instructions'] = instructions
+with open('${OPENCODE_CONFIG}', 'w') as f:
+    json.dump(cfg, f, indent=2)
+" 2>/dev/null; then
+        echo -e "${GREEN}Added${NC}   OpenCode instructions to opencode.json"
+      fi
+    else
+      cat > "${OPENCODE_CONFIG}" <<OPENCODE
+{
+  "instructions": [
+    "${VAULT}/System/Rules.md",
+    "${VAULT}/Learnings/Patterns.md",
+    "${VAULT}/Learnings/Troubleshooting.md"
+  ]
+}
+OPENCODE
+      echo -e "${GREEN}Created${NC} OpenCode config with agentBrain instructions"
+    fi
+  fi
+else
+  echo -e "${YELLOW}Skip${NC}    OpenCode (not installed)"
+fi
+
 # ── 4. Validate ──────────────────────────────
 
 echo ""

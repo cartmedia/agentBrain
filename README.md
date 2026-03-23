@@ -46,6 +46,7 @@ The self-learning protocol writes insights, patterns, and troubleshooting fixes 
 |-------|-------|
 | **Claude Code** | Auto -- `setup.sh` adds pointer to `~/.claude/CLAUDE.md` |
 | **Windsurf** | Auto -- `setup.sh` adds pointer to `global_rules.md` |
+| **OpenCode** | Auto -- `setup.sh` adds instructions to `~/.config/opencode/opencode.json` |
 | **Cline** | Auto -- `setup.sh` creates `~/Documents/Cline/Rules/agentBrain.md` |
 | **VS Code Copilot** | Manual -- add instruction file path in VS Code settings |
 | **Cursor** | Manual -- paste path in Settings > Rules |
