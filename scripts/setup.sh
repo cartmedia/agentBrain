@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
-# setup.sh — Initialize agentBrain for first-time use.
-# Run this after cloning to verify the structure is complete.
+# setup.sh — Initialize agentBrain and install agent pointers.
+# Run once after cloning. Safe to re-run (idempotent).
 
 set -euo pipefail
 
 VAULT="$(cd "$(dirname "$0")/.." && pwd)"
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+CYAN='\033[0;36m'
 NC='\033[0m'
 
 echo "Setting up agentBrain in: ${VAULT}"
 echo ""
 
-# Required directories
+# ── 1. Structure ──────────────────────────────
+
 DIRS=("Learnings" "Projects" "Sessions" "Daily Notes" "User Preferences" "Templates" "System" "scripts")
 for dir in "${DIRS[@]}"; do
   if [ ! -d "${VAULT}/${dir}" ]; then
@@ -21,7 +23,6 @@ for dir in "${DIRS[@]}"; do
   fi
 done
 
-# Ensure .gitkeep in directories that should persist when empty
 KEEPDIRS=("Sessions" "Daily Notes" "Projects")
 for dir in "${KEEPDIRS[@]}"; do
   if [ ! -f "${VAULT}/${dir}/.gitkeep" ]; then
@@ -30,86 +31,181 @@ for dir in "${KEEPDIRS[@]}"; do
   fi
 done
 
-# Generate brain.json with UUID5 namespace if missing
+# ── 2. Brain config ──────────────────────────
+
 if [ ! -f "${VAULT}/brain.json" ]; then
   NAMESPACE=$(python3 -c "import uuid; print(uuid.uuid4())")
   cat > "${VAULT}/brain.json" <<JSON
 {
   "namespace": "${NAMESPACE}",
   "version": "1.0",
-  "created": "$(date -u '+%Y-%m-%dT%H:%M:%SZ')"
+  "created": "$(date -u '+%Y-%m-%dT%H:%M:%SZ')",
+  "path": "${VAULT}"
 }
 JSON
-  echo -e "${GREEN}Created${NC} brain.json (UUID5 namespace: ${NAMESPACE})"
+  echo -e "${GREEN}Created${NC} brain.json (namespace: ${NAMESPACE})"
 else
   echo -e "${YELLOW}Exists${NC}  brain.json"
 fi
 
-# Validate templates
+# ── 3. Install agent pointers ────────────────
+# Each agent gets a global config that points to this brain.
+# Like ClaudeBrain: one vault, agents reference it by path.
+
+echo ""
+echo -e "${CYAN}Installing agent pointers...${NC}"
+
+POINTER_BLOCK="# agentBrain — persistent knowledge base
+# Path: ${VAULT}
+# Read at session start:
+#   ${VAULT}/Learnings/Patterns.md
+#   ${VAULT}/Learnings/Troubleshooting.md
+#   ${VAULT}/System/Rules.md
+#   ${VAULT}/User Preferences/"
+
+# ── Claude Code ──
+CLAUDE_DIR="$HOME/.claude"
+CLAUDE_MD="${CLAUDE_DIR}/CLAUDE.md"
+if [ -d "${CLAUDE_DIR}" ]; then
+  MARKER="# agentBrain"
+  if [ -f "${CLAUDE_MD}" ] && grep -q "${MARKER}" "${CLAUDE_MD}" 2>/dev/null; then
+    echo -e "${YELLOW}Exists${NC}  Claude Code pointer in ~/.claude/CLAUDE.md"
+  else
+    cat >> "${CLAUDE_MD}" <<CLAUDE
+
+## agentBrain
+# Persistent knowledge base at ${VAULT}
+# Read these at session start:
+- Patterns: \`${VAULT}/Learnings/Patterns.md\`
+- Troubleshooting: \`${VAULT}/Learnings/Troubleshooting.md\`
+- Rules: \`${VAULT}/System/Rules.md\`
+- Preferences: \`${VAULT}/User Preferences/\`
+
+# Self-learning: write insights to the brain during sessions.
+# See \`${VAULT}/System/Rules.md\` for the full protocol.
+CLAUDE
+    echo -e "${GREEN}Added${NC}   Claude Code pointer to ~/.claude/CLAUDE.md"
+  fi
+else
+  echo -e "${YELLOW}Skip${NC}    Claude Code (no ~/.claude/ found)"
+fi
+
+# ── VS Code Copilot (global settings) ──
+VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
+if [ -f "${VSCODE_SETTINGS}" ]; then
+  if grep -q "agentBrain" "${VSCODE_SETTINGS}" 2>/dev/null; then
+    echo -e "${YELLOW}Exists${NC}  Copilot pointer in VS Code settings"
+  else
+    echo -e "${YELLOW}Manual${NC}  VS Code Copilot: add to settings.json:"
+    echo "         \"github.copilot.chat.codeGeneration.instructions\": ["
+    echo "           { \"file\": \"${VAULT}/.github/copilot-instructions.md\" }"
+    echo "         ]"
+  fi
+else
+  echo -e "${YELLOW}Skip${NC}    VS Code Copilot (not installed)"
+fi
+
+# ── Windsurf ──
+WINDSURF_RULES="$HOME/.codeium/windsurf/memories/global_rules.md"
+WINDSURF_DIR="$(dirname "${WINDSURF_RULES}")"
+if [ -d "$HOME/.codeium" ] || [ -d "/Applications/Windsurf.app" ]; then
+  mkdir -p "${WINDSURF_DIR}"
+  MARKER="# agentBrain"
+  if [ -f "${WINDSURF_RULES}" ] && grep -q "${MARKER}" "${WINDSURF_RULES}" 2>/dev/null; then
+    echo -e "${YELLOW}Exists${NC}  Windsurf pointer in global_rules.md"
+  else
+    cat >> "${WINDSURF_RULES}" <<WINDSURF
+
+# agentBrain — persistent knowledge base
+# Path: ${VAULT}
+# Read at session start:
+# - ${VAULT}/Learnings/Patterns.md
+# - ${VAULT}/Learnings/Troubleshooting.md
+# - ${VAULT}/System/Rules.md
+# Self-learning: write insights during sessions. See ${VAULT}/System/Rules.md
+WINDSURF
+    echo -e "${GREEN}Added${NC}   Windsurf pointer to global_rules.md"
+  fi
+else
+  echo -e "${YELLOW}Skip${NC}    Windsurf (not installed)"
+fi
+
+# ── Cursor ──
+if [ -d "/Applications/Cursor.app" ]; then
+  echo -e "${YELLOW}Manual${NC}  Cursor: paste into Settings > Rules:"
+  echo "         \"Read ${VAULT}/System/Rules.md and ${VAULT}/Learnings/Patterns.md at session start.\""
+else
+  echo -e "${YELLOW}Skip${NC}    Cursor (not installed)"
+fi
+
+# ── Cline ──
+CLINE_RULES="$HOME/Documents/Cline/Rules"
+if [ -d "$HOME/Documents/Cline" ] || [ -d "$HOME/.vscode/extensions" ]; then
+  mkdir -p "${CLINE_RULES}"
+  CLINE_FILE="${CLINE_RULES}/agentBrain.md"
+  if [ -f "${CLINE_FILE}" ]; then
+    echo -e "${YELLOW}Exists${NC}  Cline pointer in ~/Documents/Cline/Rules/"
+  else
+    cat > "${CLINE_FILE}" <<CLINE
+# agentBrain
+Persistent knowledge base at ${VAULT}
+
+Read at session start:
+- ${VAULT}/Learnings/Patterns.md
+- ${VAULT}/Learnings/Troubleshooting.md
+- ${VAULT}/System/Rules.md
+
+Self-learning: write insights during sessions. See ${VAULT}/System/Rules.md
+CLINE
+    echo -e "${GREEN}Added${NC}   Cline pointer to ~/Documents/Cline/Rules/"
+  fi
+else
+  echo -e "${YELLOW}Skip${NC}    Cline (not installed)"
+fi
+
+# ── 4. Validate ──────────────────────────────
+
+echo ""
 TEMPLATES=("Learning.md" "Project.md" "Session.md" "Daily.md")
 MISSING=0
 for tmpl in "${TEMPLATES[@]}"; do
-  if [ ! -f "${VAULT}/Templates/${tmpl}" ]; then
-    echo -e "${YELLOW}Missing${NC} Templates/${tmpl}"
-    MISSING=$((MISSING + 1))
-  fi
+  [ ! -f "${VAULT}/Templates/${tmpl}" ] && MISSING=$((MISSING + 1))
 done
 
-# Check required system files
-if [ ! -f "${VAULT}/System/Rules.md" ]; then
-  echo -e "${YELLOW}Missing${NC} System/Rules.md — self-learning protocol won't work"
-fi
-
-if [ ! -f "${VAULT}/.github/copilot-instructions.md" ]; then
-  echo -e "${YELLOW}Missing${NC} .github/copilot-instructions.md — Copilot won't load brain context"
-fi
-
-# Summary
-echo ""
-echo "─────────────────────────────────────────"
 LEARNINGS=$(find "${VAULT}/Learnings" -name "*.md" ! -name "_*" 2>/dev/null | wc -l | tr -d ' ')
 PROJECTS=$(find "${VAULT}/Projects" -name "*.md" ! -name "_*" 2>/dev/null | wc -l | tr -d ' ')
 SKILLS=$(find "${VAULT}/.github/skills" -name "SKILL.md" 2>/dev/null | wc -l | tr -d ' ')
+
+echo "─────────────────────────────────────────"
 echo "  Learnings:  ${LEARNINGS} notes"
 echo "  Projects:   ${PROJECTS} notes"
 echo "  Skills:     ${SKILLS} available"
 echo "  Templates:  $((${#TEMPLATES[@]} - MISSING))/${#TEMPLATES[@]} present"
 echo "─────────────────────────────────────────"
-echo ""
-# Check onboarding status
+
+# ── 5. Onboarding check ─────────────────────
+
 PLACEHOLDER_COUNT=0
 for pref in "${VAULT}/User Preferences"/*.md; do
-  if [ -f "$pref" ] && grep -q "This is an example file" "$pref" 2>/dev/null; then
-    PLACEHOLDER_COUNT=$((PLACEHOLDER_COUNT + 1))
-  fi
+  [ -f "$pref" ] && grep -q "This is an example file" "$pref" 2>/dev/null && PLACEHOLDER_COUNT=$((PLACEHOLDER_COUNT + 1))
 done
-
-# Detect available tools
-HAS_OBSIDIAN=false
-HAS_VSCODE=false
-if [ -d "/Applications/Obsidian.app" ] || command -v obsidian &>/dev/null; then
-  HAS_OBSIDIAN=true
-fi
-if [ -d "/Applications/Visual Studio Code.app" ] || command -v code &>/dev/null; then
-  HAS_VSCODE=true
-fi
 
 echo ""
 echo "Next steps:"
 if [ "$PLACEHOLDER_COUNT" -gt 0 ]; then
-  echo "  1. Personalize your brain: run /onboard in your AI agent"
+  echo "  1. Personalize: run /onboard in your AI agent"
   echo "     (${PLACEHOLDER_COUNT} of 5 preference files still have defaults)"
 else
   echo "  1. Preferences are set up!"
 fi
-if [ "$HAS_VSCODE" = true ]; then
-  echo "  2. Open in VS Code — Copilot reads .github/copilot-instructions.md"
-else
-  echo "  2. Open in your editor — agent reads CLAUDE.md or .cursorrules"
+echo "  2. Start coding — agents read the brain automatically"
+
+HAS_OBSIDIAN=false
+if [ -d "/Applications/Obsidian.app" ] || command -v obsidian &>/dev/null; then
+  HAS_OBSIDIAN=true
 fi
 if [ "$HAS_OBSIDIAN" = true ]; then
-  echo "  3. Open in Obsidian — graph view, backlinks, search"
+  echo "  3. Open in Obsidian for graph view + search"
 else
   echo "  3. Optional: install Obsidian (https://obsidian.md) for graph view"
 fi
-echo "  4. Start coding — agentBrain learns automatically"

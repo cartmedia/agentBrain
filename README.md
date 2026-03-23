@@ -5,20 +5,23 @@ Portable, self-learning knowledge base for AI coding agents. Works with VS Code 
 
 ## Quick Start
 
-1. Clone into your project root:
+1. Clone once to your home directory:
    ```bash
-   git clone https://github.com/your-org/agentBrain.git
+   git clone https://github.com/your-org/agentBrain.git ~/agentBrain
    ```
-2. Run setup:
+2. Run setup (installs agent pointers automatically):
    ```bash
-   ./scripts/setup.sh
+   ~/agentBrain/scripts/setup.sh
    ```
-3. Customize `User Preferences/` with your info
-4. Open in your editor -- the agent picks up context automatically
+3. Start coding in any project -- your agents now read the brain automatically
+
+That's it. One brain, all projects, all agents.
 
 ## How It Works
 
-agentBrain is an external memory that grows with every coding session. AI agents' internal memories expire (Copilot: 28 days, Claude: per session). agentBrain is permanent.
+agentBrain is a **central** external memory -- one installation shared across all your projects. AI agents' internal memories expire (Copilot: 28 days, Claude: per session). agentBrain is permanent.
+
+The setup script installs pointers into each agent's global config (like `~/.claude/CLAUDE.md` for Claude Code, `global_rules.md` for Windsurf, etc.). Every agent in every project reads from the same brain.
 
 The self-learning protocol writes insights, patterns, and troubleshooting fixes to structured files. Your agent reads these at session start and writes new knowledge during sessions.
 
@@ -41,12 +44,12 @@ The self-learning protocol writes insights, patterns, and troubleshooting fixes 
 
 | Agent | Setup |
 |-------|-------|
-| **VS Code Copilot** | Automatic -- reads `.github/copilot-instructions.md` + skills |
-| **Cursor** | Automatic -- reads `.cursorrules` |
-| **Windsurf** | Automatic -- reads `.windsurfrules` |
-| **Claude Code** | Automatic -- reads `CLAUDE.md` |
-| **Cline / Continue** | Reads files directly via MCP or file access |
-| **Obsidian** | Open as vault -- graph view, backlinks, search |
+| **Claude Code** | Auto -- `setup.sh` adds pointer to `~/.claude/CLAUDE.md` |
+| **Windsurf** | Auto -- `setup.sh` adds pointer to `global_rules.md` |
+| **Cline** | Auto -- `setup.sh` creates `~/Documents/Cline/Rules/agentBrain.md` |
+| **VS Code Copilot** | Manual -- add instruction file path in VS Code settings |
+| **Cursor** | Manual -- paste path in Settings > Rules |
+| **Obsidian** | Open `~/agentBrain` as vault -- graph view, backlinks, search |
 
 ## Skills
 
