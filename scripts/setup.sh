@@ -13,6 +13,48 @@ NC='\033[0m'
 echo "Setting up agentBrain in: ${VAULT}"
 echo ""
 
+# ── 0. Dependencies ──────────────────────────
+
+MISSING_DEPS=false
+
+if ! command -v git &>/dev/null; then
+  echo -e "${YELLOW}Missing${NC}  git (required)"
+  MISSING_DEPS=true
+fi
+
+if ! command -v python3 &>/dev/null; then
+  echo -e "${YELLOW}Missing${NC}  python3 (required for UUID5 generation)"
+  MISSING_DEPS=true
+fi
+
+if [ "$MISSING_DEPS" = true ]; then
+  if command -v brew &>/dev/null; then
+    read -p "Install missing dependencies via Homebrew? [y/N] " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      command -v git &>/dev/null || brew install git
+      command -v python3 &>/dev/null || brew install python3
+    else
+      echo "Please install missing dependencies and re-run setup."
+      exit 1
+    fi
+  elif command -v apt-get &>/dev/null; then
+    read -p "Install missing dependencies via apt? [y/N] " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      sudo apt-get update -qq
+      command -v git &>/dev/null || sudo apt-get install -y git
+      command -v python3 &>/dev/null || sudo apt-get install -y python3
+    else
+      echo "Please install missing dependencies and re-run setup."
+      exit 1
+    fi
+  else
+    echo "Please install git and python3, then re-run setup."
+    exit 1
+  fi
+fi
+
 # ── 1. Structure ──────────────────────────────
 
 DIRS=("Learnings" "Projects" "Sessions" "Daily Notes" "User Preferences" "Templates" "System" "scripts")
@@ -207,5 +249,16 @@ fi
 if [ "$HAS_OBSIDIAN" = true ]; then
   echo "  3. Open in Obsidian for graph view + search"
 else
-  echo "  3. Optional: install Obsidian (https://obsidian.md) for graph view"
+  if command -v brew &>/dev/null; then
+    read -p "  Install Obsidian for graph view + search? [y/N] " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      brew install --cask obsidian
+      echo -e "  ${GREEN}Installed${NC} Obsidian — open ~/agentBrain as vault"
+    else
+      echo "  3. Optional: brew install --cask obsidian"
+    fi
+  else
+    echo "  3. Optional: install Obsidian (https://obsidian.md) for graph view"
+  fi
 fi
