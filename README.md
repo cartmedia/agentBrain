@@ -42,8 +42,9 @@ The self-learning protocol writes insights, patterns, and troubleshooting fixes 
 | Agent | Setup |
 |-------|-------|
 | **VS Code Copilot** | Automatic -- reads `.github/copilot-instructions.md` + skills |
-| **Cursor** | Copy `.cursorrules` to project root |
-| **Claude Code** | Add `CLAUDE.md` to project root |
+| **Cursor** | Automatic -- reads `.cursorrules` |
+| **Windsurf** | Automatic -- reads `.windsurfrules` |
+| **Claude Code** | Automatic -- reads `CLAUDE.md` |
 | **Cline / Continue** | Reads files directly via MCP or file access |
 | **Obsidian** | Open as vault -- graph view, backlinks, search |
 
