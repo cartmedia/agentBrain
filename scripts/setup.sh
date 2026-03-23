@@ -4,6 +4,9 @@
 
 set -euo pipefail
 
+# Ensure Homebrew is in PATH (macOS)
+[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null)" || true
+
 VAULT="$(cd "$(dirname "$0")/.." && pwd)"
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
