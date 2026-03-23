@@ -76,8 +76,40 @@ echo "  Skills:     ${SKILLS} available"
 echo "  Templates:  $((${#TEMPLATES[@]} - MISSING))/${#TEMPLATES[@]} present"
 echo "─────────────────────────────────────────"
 echo ""
+# Check onboarding status
+PLACEHOLDER_COUNT=0
+for pref in "${VAULT}/User Preferences"/*.md; do
+  if [ -f "$pref" ] && grep -q "This is an example file" "$pref" 2>/dev/null; then
+    PLACEHOLDER_COUNT=$((PLACEHOLDER_COUNT + 1))
+  fi
+done
+
+# Detect available tools
+HAS_OBSIDIAN=false
+HAS_VSCODE=false
+if [ -d "/Applications/Obsidian.app" ] || command -v obsidian &>/dev/null; then
+  HAS_OBSIDIAN=true
+fi
+if [ -d "/Applications/Visual Studio Code.app" ] || command -v code &>/dev/null; then
+  HAS_VSCODE=true
+fi
+
+echo ""
 echo "Next steps:"
-echo "  1. Customize User Preferences/ files with your info"
-echo "  2. Open in VS Code — Copilot reads .github/copilot-instructions.md"
-echo "  3. Open in Obsidian — graph view, backlinks, search"
+if [ "$PLACEHOLDER_COUNT" -gt 0 ]; then
+  echo "  1. Personalize your brain: run /onboard in your AI agent"
+  echo "     (${PLACEHOLDER_COUNT} of 5 preference files still have defaults)"
+else
+  echo "  1. Preferences are set up!"
+fi
+if [ "$HAS_VSCODE" = true ]; then
+  echo "  2. Open in VS Code — Copilot reads .github/copilot-instructions.md"
+else
+  echo "  2. Open in your editor — agent reads CLAUDE.md or .cursorrules"
+fi
+if [ "$HAS_OBSIDIAN" = true ]; then
+  echo "  3. Open in Obsidian — graph view, backlinks, search"
+else
+  echo "  3. Optional: install Obsidian (https://obsidian.md) for graph view"
+fi
 echo "  4. Start coding — agentBrain learns automatically"

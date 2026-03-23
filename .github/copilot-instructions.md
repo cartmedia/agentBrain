@@ -11,13 +11,11 @@ id: fa302a57-d7cd-5211-bed8-ebaa80df1fe3
 agentBrain is a persistent external memory. It grows with every session.
 Copilot's internal memories expire after 28 days — agentBrain is permanent.
 
-## Knowledge Base
-Consult these at the start of every session:
-- Known patterns: `Learnings/Patterns.md`
-- Troubleshooting: `Learnings/Troubleshooting.md`
-- Project context: `Projects/`
-- User preferences: `User Preferences/`
-- Rules & self-learning: `System/Rules.md`
+## Session Start
+At the start of every session:
+1. Read: `Learnings/Patterns.md`, `Learnings/Troubleshooting.md`, `System/Rules.md`
+2. Read relevant `Projects/` and `User Preferences/` files
+3. **Onboarding check**: If any `User Preferences/` file still contains `This is an example file`, tell the user: "Some preferences are not set up yet. Run `/onboard` to personalize agentBrain."
 
 ## Style
 - Concise — no unnecessary explanations
@@ -108,3 +106,4 @@ agentBrain includes skills you can invoke via `/`:
 - `/save-troubleshoot` — log a problem + solution in Troubleshooting
 - `/project-update` — create or update a project note
 - `/brain-review` — review agentBrain for outdated or incomplete notes
+- `/onboard` — interactive setup to personalize User Preferences
