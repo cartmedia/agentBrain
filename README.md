@@ -1,4 +1,5 @@
-# agentBrain
+# agentBrain v1.0
+> Version: v1.0 (2026-03-23)
 
 Portable knowledge base for VS Code Copilot. Place this folder in your project root. If you place agentBrain in a subdirectory, adjust all relative paths in `.github/copilot-instructions.md` accordingly.
 
