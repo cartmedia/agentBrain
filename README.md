@@ -1,5 +1,5 @@
-# agentBrain v1.0
-> Version: v1.0 (2026-03-23)
+# agentBrain v1.1
+> Version: v1.1 (2026-03-24)
 
 Portable, self-learning knowledge base for AI coding agents. Works with VS Code Copilot, Obsidian, Cursor, Cline, Claude Code, and any agent that reads markdown.
 
