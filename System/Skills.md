@@ -153,7 +153,7 @@ Periodic review of agentBrain to keep the knowledge base healthy.
 
 3. **Check quality per note:**
    - Does it have frontmatter with all required fields?
-     - Learning: `date`, `type`, `tags`, `confidence`, `source`
+     - Learning: `date`, `type`, `tags`, `confidence`, `source`, `id`
      - Project: `date`, `type`, `tags`, `status`, `priority`
    - Is it actionable? (not just "interesting")
    - Is it concise? (no unnecessary text)
