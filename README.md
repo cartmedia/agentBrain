@@ -30,14 +30,14 @@ The self-learning protocol writes insights, patterns, and troubleshooting fixes 
 | Folder | Purpose |
 |--------|---------|
 | `.github/copilot-instructions.md` | Entry point -- agent reads this automatically |
-| `.github/skills/` | Slash commands (`/save-learning`, `/brain-review`, etc.) |
+| `.github/skills/` | Slash commands for GitHub Copilot (native format) |
 | `Learnings/` | Technical insights, patterns, troubleshooting |
 | `Projects/` | Project notes and progress tracking |
 | `Sessions/` | Session logs (auto-generated, git-ignored) |
 | `Daily Notes/` | Daily notes (auto-generated, git-ignored) |
 | `User Preferences/` | Your work style, design taste, tech stack |
 | `Templates/` | Templates for new notes |
-| `System/` | Rules and self-learning protocol |
+| `System/` | Rules, self-learning protocol, and cross-agent skills |
 | `scripts/` | Helper scripts (setup, daily notes, UUID generator) |
 
 ## Agent Compatibility
@@ -60,6 +60,11 @@ The self-learning protocol writes insights, patterns, and troubleshooting fixes 
 | `/save-troubleshoot` | Log a problem + solution |
 | `/project-update` | Create or update a project note |
 | `/brain-review` | Audit the brain for quality and staleness |
+| `/onboard` | Interactive setup to personalize User Preferences |
+
+Skills work in two ways:
+- **GitHub Copilot**: native slash commands via `.github/skills/` (SKILL.md format)
+- **All other agents** (Claude Code, Cursor, Windsurf, Cline, OpenCode): via `System/Skills.md`, which is read automatically at session start and contains all skill instructions in agent-agnostic markdown
 
 ## Self-Learning Protocol
 

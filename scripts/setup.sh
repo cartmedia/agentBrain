@@ -106,6 +106,7 @@ POINTER_BLOCK="# agentBrain — persistent knowledge base
 #   ${VAULT}/Learnings/Patterns.md
 #   ${VAULT}/Learnings/Troubleshooting.md
 #   ${VAULT}/System/Rules.md
+#   ${VAULT}/System/Skills.md
 #   ${VAULT}/User Preferences/"
 
 # ── Claude Code ──
@@ -124,6 +125,7 @@ if [ -d "${CLAUDE_DIR}" ]; then
 - Patterns: \`${VAULT}/Learnings/Patterns.md\`
 - Troubleshooting: \`${VAULT}/Learnings/Troubleshooting.md\`
 - Rules: \`${VAULT}/System/Rules.md\`
+- Skills: \`${VAULT}/System/Skills.md\`
 - Preferences: \`${VAULT}/User Preferences/\`
 
 # Self-learning: write insights to the brain during sessions.
@@ -167,6 +169,7 @@ if [ -d "$HOME/.codeium" ] || [ -d "/Applications/Windsurf.app" ]; then
 # - ${VAULT}/Learnings/Patterns.md
 # - ${VAULT}/Learnings/Troubleshooting.md
 # - ${VAULT}/System/Rules.md
+# - ${VAULT}/System/Skills.md
 # Self-learning: write insights during sessions. See ${VAULT}/System/Rules.md
 WINDSURF
     echo -e "${GREEN}Added${NC}   Windsurf pointer to global_rules.md"
@@ -178,7 +181,7 @@ fi
 # ── Cursor ──
 if [ -d "/Applications/Cursor.app" ]; then
   echo -e "${YELLOW}Manual${NC}  Cursor: paste into Settings > Rules:"
-  echo "         \"Read ${VAULT}/System/Rules.md and ${VAULT}/Learnings/Patterns.md at session start.\""
+  echo "         \"Read ${VAULT}/System/Rules.md, ${VAULT}/System/Skills.md, and ${VAULT}/Learnings/Patterns.md at session start.\""
 else
   echo -e "${YELLOW}Skip${NC}    Cursor (not installed)"
 fi
@@ -199,6 +202,7 @@ Read at session start:
 - ${VAULT}/Learnings/Patterns.md
 - ${VAULT}/Learnings/Troubleshooting.md
 - ${VAULT}/System/Rules.md
+- ${VAULT}/System/Skills.md
 
 Self-learning: write insights during sessions. See ${VAULT}/System/Rules.md
 CLINE
@@ -222,7 +226,7 @@ import json, sys
 with open('${OPENCODE_CONFIG}') as f:
     cfg = json.load(f)
 instructions = cfg.get('instructions', [])
-brain_files = ['${VAULT}/System/Rules.md', '${VAULT}/Learnings/Patterns.md', '${VAULT}/Learnings/Troubleshooting.md']
+brain_files = ['${VAULT}/System/Rules.md', '${VAULT}/System/Skills.md', '${VAULT}/Learnings/Patterns.md', '${VAULT}/Learnings/Troubleshooting.md']
 for bf in brain_files:
     if bf not in instructions:
         instructions.append(bf)
@@ -237,6 +241,7 @@ with open('${OPENCODE_CONFIG}', 'w') as f:
 {
   "instructions": [
     "${VAULT}/System/Rules.md",
+    "${VAULT}/System/Skills.md",
     "${VAULT}/Learnings/Patterns.md",
     "${VAULT}/Learnings/Troubleshooting.md"
   ]

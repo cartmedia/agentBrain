@@ -13,7 +13,7 @@ Copilot's internal memories expire after 28 days — agentBrain is permanent.
 
 ## Session Start
 At the start of every session:
-1. Read: `Learnings/Patterns.md`, `Learnings/Troubleshooting.md`, `System/Rules.md`
+1. Read: `Learnings/Patterns.md`, `Learnings/Troubleshooting.md`, `System/Rules.md`, `System/Skills.md`
 2. Read relevant `Projects/` and `User Preferences/` files
 3. **Onboarding check**: If any `User Preferences/` file still contains `This is an example file`, tell the user: "Some preferences are not set up yet. Run `/onboard` to personalize agentBrain."
 
