@@ -2,6 +2,7 @@
 date: 2026-03-17
 type: changelog
 project: example
+id: eb0ffdd7-4ca9-5581-9b32-2ca67c19988c
 ---
 
 # Example Project -- Changelog

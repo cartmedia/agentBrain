@@ -2,6 +2,7 @@
 date: 2026-03-17
 type: prd
 project: example
+id: d7893d81-f796-503e-ac8e-c20a0137e68a
 ---
 
 # Example Project -- Requirements

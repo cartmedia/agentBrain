@@ -322,7 +322,8 @@ echo ""
 echo "Next steps:"
 if [ "$PLACEHOLDER_COUNT" -gt 0 ]; then
   echo "  1. Personalize: run /onboard in your AI agent"
-  echo "     (${PLACEHOLDER_COUNT} of 5 preference files still have defaults)"
+  TOTAL_PREFS=$(find "${VAULT}/User Preferences" -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+  echo "     (${PLACEHOLDER_COUNT} of ${TOTAL_PREFS} preference files still have defaults)"
 else
   echo "  1. Preferences are set up!"
 fi

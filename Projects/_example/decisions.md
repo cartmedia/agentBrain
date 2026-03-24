@@ -2,6 +2,7 @@
 date: 2026-03-17
 type: decisions
 project: example
+id: e37efd37-f064-5546-9b9a-064914f7e6a7
 ---
 
 # Example Project -- Decisions

@@ -11,7 +11,7 @@ Persistent knowledge base -- read at session start, write during session.
 
 ## Session start
 1. Read: `Learnings/Patterns.md`, `Learnings/Troubleshooting.md`, `System/Rules.md`, `System/Skills.md`, `System/Lifecycle.md`
-2. Read relevant `Projects/` and `User Preferences/` files
+2. Read relevant `local/Projects/[name]/index.md` and `User Preferences/` files
 3. Read `local/memories/` for personal context (if exists)
 4. **Onboarding check**: If any `User Preferences/` file contains "This is an example file", tell the user: "Some preferences are not set up yet. Run /onboard to personalize agentBrain."
 

@@ -2,6 +2,7 @@
 date: 2026-03-17
 type: context
 project: example
+id: 1e00a358-fbb3-554e-ba2d-85797c4abebf
 ---
 
 # Example Project -- Context Map
