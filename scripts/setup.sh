@@ -4,8 +4,12 @@
 
 set -euo pipefail
 
-# Ensure Homebrew is in PATH (macOS)
-[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null)" || true
+# Ensure Homebrew is in PATH
+if [ "$(uname)" = "Darwin" ] && [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null)"
+elif [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv 2>/dev/null)"
+fi
 
 VAULT="$(cd "$(dirname "$0")/.." && pwd)"
 GREEN='\033[0;32m'
@@ -264,6 +268,8 @@ with open('${OPENCODE_CONFIG}', 'w') as f:
     json.dump(cfg, f, indent=2)
 " 2>/dev/null; then
         echo -e "${GREEN}Added${NC}   OpenCode instructions to opencode.json"
+      else
+        echo -e "${YELLOW}Warning${NC} Failed to update OpenCode config — edit ~/.config/opencode/opencode.json manually"
       fi
     else
       cat > "${OPENCODE_CONFIG}" <<OPENCODE

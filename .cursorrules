@@ -10,6 +10,7 @@ If any file in `User Preferences/` contains "This is an example file", tell the 
 - `Learnings/Troubleshooting.md` -- known problems
 - `System/Rules.md` -- self-learning protocol
 - `System/Skills.md` -- available slash commands
+- `System/Lifecycle.md` -- project phase definitions
 - `local/memories/` -- personal context (if exists)
 
 ## During session, write:

@@ -7,6 +7,7 @@ Portable, self-learning knowledge base for AI coding agents. Works with VS Code 
 
 1. Clone once to your home directory:
    ```bash
+   # Replace "your-org" with your GitHub username or organization
    git clone https://github.com/your-org/agentBrain.git ~/agentBrain
    ```
 2. Run setup (installs agent pointers automatically):

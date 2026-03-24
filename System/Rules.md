@@ -57,9 +57,11 @@ Everything valuable MUST be stored here permanently.
 Read at the beginning of every session:
 1. `Learnings/Patterns.md` — known patterns
 2. `Learnings/Troubleshooting.md` — known problems
-3. `System/Lifecycle.md` — project phase definitions
-4. Relevant `local/Projects/[name]/index.md` — project context
-5. `local/memories/` — personal context (if exists)
+3. `System/Rules.md` — self-learning protocol (this file)
+4. `System/Skills.md` — available slash commands
+5. `System/Lifecycle.md` — project phase definitions
+6. Relevant `local/Projects/[name]/index.md` — project context
+7. `local/memories/` — personal context (if exists)
 
 ### Step 2: Write during session
 

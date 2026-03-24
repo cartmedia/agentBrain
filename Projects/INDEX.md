@@ -11,3 +11,4 @@ id: 6dca2b85-a72e-5308-8dcf-7c02e145a4f5
 |---------|--------|----------|---------|
 
 > This file is updated by the `/project-update` skill when projects are created or modified.
+> See `Projects/_example/` for the project folder structure and templates.
