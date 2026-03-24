@@ -31,7 +31,7 @@ if ! command -v python3 &>/dev/null; then
 fi
 
 if [ "$MISSING_DEPS" = true ]; then
-  if command -v brew &>/dev/null; then
+  if [ -t 0 ] && command -v brew &>/dev/null; then
     read -p "Install missing dependencies via Homebrew? [y/N] " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -41,7 +41,7 @@ if [ "$MISSING_DEPS" = true ]; then
       echo "Please install missing dependencies and re-run setup."
       exit 1
     fi
-  elif command -v apt-get &>/dev/null; then
+  elif [ -t 0 ] && command -v apt-get &>/dev/null; then
     read -p "Install missing dependencies via apt? [y/N] " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -112,12 +112,15 @@ POINTER_BLOCK="# agentBrain — persistent knowledge base
 # ── Claude Code ──
 CLAUDE_DIR="$HOME/.claude"
 CLAUDE_MD="${CLAUDE_DIR}/CLAUDE.md"
-if [ -d "${CLAUDE_DIR}" ]; then
-  MARKER="# agentBrain"
-  if [ -f "${CLAUDE_MD}" ] && grep -q "${MARKER}" "${CLAUDE_MD}" 2>/dev/null; then
-    echo -e "${YELLOW}Exists${NC}  Claude Code pointer in ~/.claude/CLAUDE.md"
-  else
-    cat >> "${CLAUDE_MD}" <<CLAUDE
+if [ ! -d "${CLAUDE_DIR}" ]; then
+  mkdir -p "${CLAUDE_DIR}"
+  echo -e "${GREEN}Created${NC} ~/.claude/"
+fi
+MARKER="# agentBrain"
+if [ -f "${CLAUDE_MD}" ] && grep -q "${MARKER}" "${CLAUDE_MD}" 2>/dev/null; then
+  echo -e "${YELLOW}Exists${NC}  Claude Code pointer in ~/.claude/CLAUDE.md"
+else
+  cat >> "${CLAUDE_MD}" <<CLAUDE
 
 ## agentBrain
 # Persistent knowledge base at ${VAULT}
@@ -131,15 +134,19 @@ if [ -d "${CLAUDE_DIR}" ]; then
 # Self-learning: write insights to the brain during sessions.
 # See \`${VAULT}/System/Rules.md\` for the full protocol.
 CLAUDE
-    echo -e "${GREEN}Added${NC}   Claude Code pointer to ~/.claude/CLAUDE.md"
-  fi
-else
-  echo -e "${YELLOW}Skip${NC}    Claude Code (no ~/.claude/ found)"
+  echo -e "${GREEN}Added${NC}   Claude Code pointer to ~/.claude/CLAUDE.md"
 fi
 
 # ── VS Code Copilot (global settings) ──
-VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
-if [ -f "${VSCODE_SETTINGS}" ]; then
+# Cross-platform settings path
+if [ "$(uname)" = "Darwin" ]; then
+  VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
+elif [ -n "${WSL_DISTRO_NAME:-}" ] || [ "$(uname)" = "Linux" ]; then
+  VSCODE_SETTINGS="${XDG_CONFIG_HOME:-$HOME/.config}/Code/User/settings.json"
+else
+  VSCODE_SETTINGS=""
+fi
+if [ -n "${VSCODE_SETTINGS}" ] && [ -f "${VSCODE_SETTINGS}" ]; then
   if grep -q "agentBrain" "${VSCODE_SETTINGS}" 2>/dev/null; then
     echo -e "${YELLOW}Exists${NC}  Copilot pointer in VS Code settings"
   else
@@ -298,7 +305,8 @@ fi
 if [ "$HAS_OBSIDIAN" = true ]; then
   echo "  3. Open in Obsidian for graph view + search"
 else
-  if command -v brew &>/dev/null; then
+  # Only prompt interactively if stdin is a terminal
+  if [ -t 0 ] && command -v brew &>/dev/null; then
     read -p "  Install Obsidian for graph view + search? [y/N] " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
