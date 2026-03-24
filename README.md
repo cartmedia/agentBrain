@@ -42,11 +42,15 @@ The self-learning protocol writes insights, patterns, and troubleshooting fixes 
 | `System/` | Rules, self-learning protocol, and cross-agent skills |
 | `scripts/` | Helper scripts (setup, daily notes, UUID generator) |
 
-### Project subfolder convention
+### Project convention
 
-Each project is a folder under `Projects/`:
+`Projects/` is shared (tracked in git) — only the index and examples:
+- `Projects/INDEX.md` — project registry (names + status, no secrets)
+- `Projects/_example/` — template showing the folder structure
+
+Your actual projects live in `local/Projects/` (gitignored, personal):
 ```
-Projects/[name]/
+local/Projects/[name]/
   index.md        (required -- main project note)
   prd.md          (optional -- requirements, user stories)
   decisions.md    (optional -- architecture decision records)

@@ -84,12 +84,12 @@ Log a problem + solution in `Learnings/Troubleshooting.md` so it does not need t
 
 ## /project-update
 
-Create or update a project in `Projects/`.
+Create or update a project in `local/Projects/` (personal, gitignored).
 
 ### Steps -- New project
 
-1. **Check if the project already exists** in `Projects/`
-2. **Create `Projects/[name]/`** subfolder with at minimum `index.md`:
+1. **Check if the project already exists** in `local/Projects/`
+2. **Create `local/Projects/[name]/`** subfolder with at minimum `index.md`:
    - Use `Templates/Project-Index.md` as template
    - Generate UUID5 for `id` field
    ```yaml
@@ -117,7 +117,7 @@ Create or update a project in `Projects/`.
 
 ### Steps -- Updating an existing project
 
-1. **Read the existing files** in `Projects/[name]/`
+1. **Read the existing files** in `local/Projects/[name]/`
 2. **Update the relevant file:**
    - New milestone -> add to `index.md` `## Progress` with date
    - Architecture decision -> add to `decisions.md` (create if missing)
@@ -164,7 +164,7 @@ Periodic review of agentBrain to keep the knowledge base healthy.
    - Are there duplicate entries?
 
 5. **Check projects:**
-   - Projects should be subfolders (`Projects/[name]/`), not single files
+   - Projects should be subfolders (`local/Projects/[name]/`), not single files
    - Each project subfolder must have at least `index.md`
    - `Projects/INDEX.md` should be in sync with actual project folders
    - Are `status: active` projects still active?

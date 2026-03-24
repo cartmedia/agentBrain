@@ -60,8 +60,18 @@ fi
 
 # ── 1. Structure ──────────────────────────────
 
+# Shared directories (tracked in git)
 DIRS=("Learnings" "Projects" "Sessions" "Daily Notes" "User Preferences" "Templates" "System" "scripts")
 for dir in "${DIRS[@]}"; do
+  if [ ! -d "${VAULT}/${dir}" ]; then
+    mkdir -p "${VAULT}/${dir}"
+    echo -e "${GREEN}Created${NC} ${dir}/"
+  fi
+done
+
+# Personal directories (gitignored)
+LOCAL_DIRS=("local/Projects" "local/Sessions" "local/memories" "local/integrations")
+for dir in "${LOCAL_DIRS[@]}"; do
   if [ ! -d "${VAULT}/${dir}" ]; then
     mkdir -p "${VAULT}/${dir}"
     echo -e "${GREEN}Created${NC} ${dir}/"
@@ -298,24 +308,8 @@ else
 fi
 echo "  2. Start coding — agents read the brain automatically"
 
-HAS_OBSIDIAN=false
 if [ -d "/Applications/Obsidian.app" ] || command -v obsidian &>/dev/null; then
-  HAS_OBSIDIAN=true
-fi
-if [ "$HAS_OBSIDIAN" = true ]; then
   echo "  3. Open in Obsidian for graph view + search"
 else
-  # Only prompt interactively if stdin is a terminal
-  if [ -t 0 ] && command -v brew &>/dev/null; then
-    read -p "  Install Obsidian for graph view + search? [y/N] " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-      brew install --cask obsidian
-      echo -e "  ${GREEN}Installed${NC} Obsidian — open ~/agentBrain as vault"
-    else
-      echo "  3. Optional: brew install --cask obsidian"
-    fi
-  else
-    echo "  3. Optional: install Obsidian (https://obsidian.md) for graph view"
-  fi
+  echo "  3. Install Obsidian (https://obsidian.md) and open ~/agentBrain as vault"
 fi

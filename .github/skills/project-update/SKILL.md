@@ -16,13 +16,13 @@ resources:
 
 # Project Update
 
-Create or update a project in `Projects/`.
+Create or update a project in `local/Projects/` (personal, gitignored).
 
 ## Steps
 
 ### New project
-1. **Check if the project already exists** in `Projects/`
-2. **Create `Projects/[name]/`** subfolder with at minimum `index.md`:
+1. **Check if the project already exists** in `local/Projects/`
+2. **Create `local/Projects/[name]/`** subfolder with at minimum `index.md`:
    - Use `Templates/Project-Index.md` as template
    - Generate UUID5 for `id` field
    ```yaml
@@ -46,10 +46,10 @@ Create or update a project in `Projects/`.
    - `deploy.md` -- deploy config (template: `Templates/Project-Deploy.md`)
    - `changelog.md` -- change log (template: `Templates/Project-Changelog.md`)
    - `context.md` -- context map (template: `Templates/Project-Context.md`)
-5. **Update `Projects/INDEX.md`** -- add project to the table
+5. **Update `Projects/INDEX.md`** -- add project name + status to the shared index (no secrets/private details)
 
 ### Updating an existing project
-1. **Read the existing files** in `Projects/[name]/`
+1. **Read the existing files** in `local/Projects/[name]/`
 2. **Update the relevant file:**
    - New milestone -> add to `index.md` `## Progress` with date
    - Architecture decision -> add to `decisions.md` (create if missing)
