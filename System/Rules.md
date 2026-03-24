@@ -128,7 +128,7 @@ Before writing, check:
 - Frontmatter is always required. Per type:
   - **Learning**: `date`, `type`, `tags`, `confidence`, `source`, `id` — tracking insights from sessions/docs
   - **Project**: `date`, `type`, `tags`, `status`, `priority`, `id` — tracking entities, not insights (hence no `confidence`/`source`)
-- **`id`**: UUID5 hash, namespace `a3b2c1d0-1234-5678-9abc-def012345678` + `agentBrain/[path]` (without extension)
+- **`id`**: UUID5 hash, namespace from `brain.json` + `agentBrain/[path]` (without extension). Run `scripts/uuid5-gen.sh "path/to/note"` to generate
 - **Wiki-links**: use `[[note-name]]` in Related sections (for Obsidian graph view)
 - Concise, no prose
 - Update > new — update existing notes rather than creating new ones

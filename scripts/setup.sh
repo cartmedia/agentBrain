@@ -124,15 +124,6 @@ fi
 echo ""
 echo -e "${CYAN}Installing agent pointers...${NC}"
 
-POINTER_BLOCK="# agentBrain — persistent knowledge base
-# Path: ${VAULT}
-# Read at session start:
-#   ${VAULT}/Learnings/Patterns.md
-#   ${VAULT}/Learnings/Troubleshooting.md
-#   ${VAULT}/System/Rules.md
-#   ${VAULT}/System/Skills.md
-#   ${VAULT}/User Preferences/"
-
 # ── Claude Code ──
 CLAUDE_DIR="$HOME/.claude"
 CLAUDE_MD="${CLAUDE_DIR}/CLAUDE.md"
