@@ -1,3 +1,10 @@
+---
+date: 2026-03-24
+type: system
+tags: [meta, claude-code, entry-point]
+id: 1f6bcba0-ded7-579c-8a17-163e7f45dfb7
+---
+
 # agentBrain
 
 Persistent knowledge base -- read at session start, write during session.

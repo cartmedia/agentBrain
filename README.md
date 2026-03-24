@@ -1,3 +1,10 @@
+---
+date: 2026-03-24
+type: system
+tags: [meta, readme]
+id: 5a26c40d-fb39-535c-b6f3-61c572c8983c
+---
+
 # agentBrain v1.1
 > Version: v1.1 (2026-03-24)
 
