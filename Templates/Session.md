@@ -3,7 +3,7 @@ date: {{date}}
 type: session
 tags: []
 projects: []
-status: completed
+status: active
 duration: ""
 id: {{uuid5}}
 ---

@@ -4,7 +4,7 @@ type: learning
 tags: [integration, bots, telegram, whatsapp, automation]
 confidence: high
 source: session
-id: g1h2i3j4-k5l6-5m7n-8o9p-qrstuvwxyz01
+id: 9dfbee37-afc6-5659-9cb7-9936d898e95e
 ---
 
 # Bot Integration with agentBrain

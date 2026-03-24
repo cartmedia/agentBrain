@@ -10,8 +10,8 @@ project: example
 A sample web application that demonstrates the project subfolder structure.
 
 ## User Stories
-- [ ] US-01: Als developer wil ik een REST API zodat de frontend data kan ophalen
-- [ ] US-02: Als gebruiker wil ik kunnen inloggen zodat mijn data beschermd is
+- [ ] US-01: As a developer I want a REST API so the frontend can fetch data
+- [ ] US-02: As a user I want to be able to log in so my data is protected
 
 ## Acceptance Criteria
 - API responds within 200ms

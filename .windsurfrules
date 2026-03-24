@@ -3,7 +3,7 @@
 You have access to a persistent knowledge base in this repository.
 
 ## Onboarding check
-If any file in `User Preferences/` contains "This is an example file", tell the user their preferences need setup and offer to ask questions to fill them in.
+If any file in `User Preferences/` contains "This is an example file", tell the user: "Some preferences are not set up yet. Run /onboard to personalize agentBrain."
 
 ## At session start, read:
 - `Learnings/Patterns.md` -- known patterns
