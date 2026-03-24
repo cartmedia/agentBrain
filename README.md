@@ -126,7 +126,8 @@ agentBrain separates shared knowledge from personal data:
 
 ## Obsidian Vault
 
-agentBrain doubles as an Obsidian vault:
+agentBrain is an Obsidian vault by default. The `.obsidian/` config is tracked in git (minimal, curated); only cache and workspace files are gitignored.
+
 - Wiki-links (`[[note-name]]`) in Related sections
 - Graph view shows connections between notes
 - UUID5 IDs in frontmatter for stable cross-referencing

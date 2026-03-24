@@ -149,14 +149,26 @@ fi
 
 # ── VS Code Copilot (global settings) ──
 # Cross-platform settings path
+# Check Code, Code-Insiders, and VSCodium
+VSCODE_SETTINGS=""
 if [ "$(uname)" = "Darwin" ]; then
-  VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
-elif [ -n "${WSL_DISTRO_NAME:-}" ] || [ "$(uname)" = "Linux" ]; then
-  VSCODE_SETTINGS="${XDG_CONFIG_HOME:-$HOME/.config}/Code/User/settings.json"
+  VSCODE_CANDIDATES=(
+    "$HOME/Library/Application Support/Code/User/settings.json"
+    "$HOME/Library/Application Support/Code - Insiders/User/settings.json"
+    "$HOME/Library/Application Support/VSCodium/User/settings.json"
+  )
 else
-  VSCODE_SETTINGS=""
+  VSCODE_BASE="${XDG_CONFIG_HOME:-$HOME/.config}"
+  VSCODE_CANDIDATES=(
+    "${VSCODE_BASE}/Code/User/settings.json"
+    "${VSCODE_BASE}/Code - Insiders/User/settings.json"
+    "${VSCODE_BASE}/VSCodium/User/settings.json"
+  )
 fi
-if [ -n "${VSCODE_SETTINGS}" ] && [ -f "${VSCODE_SETTINGS}" ]; then
+for candidate in "${VSCODE_CANDIDATES[@]}"; do
+  [ -f "$candidate" ] && VSCODE_SETTINGS="$candidate" && break
+done
+if [ -n "${VSCODE_SETTINGS}" ]; then
   if grep -q "agentBrain" "${VSCODE_SETTINGS}" 2>/dev/null; then
     echo -e "${YELLOW}Exists${NC}  Copilot pointer in VS Code settings"
   else
