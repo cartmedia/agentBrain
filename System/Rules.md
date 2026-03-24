@@ -35,7 +35,7 @@ Projects use subfolders instead of single files.
 - Templates for all project files are in `Templates/Project-*.md`
 
 ### PRD User Stories
-Format: `- [ ] US-XX: Als [role] wil ik [action] zodat [benefit]`
+Format: `- [ ] US-XX: As a [role] I want [action] so that [benefit]`
 This format is parseable by ralph-loop and checklister.
 
 ### Decisions
