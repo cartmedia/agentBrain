@@ -143,6 +143,14 @@ Before writing, check:
 - Staleness check: when tool/library updates happen, review notes for that tool. Notes older than 6 months without updates deserve a check
 - Project insight becomes a general pattern? -> move to [[Patterns]], leave cross-ref in project note
 
+## Maintenance Routine
+Run `/brain-review` monthly. The review checks:
+- Notes older than 6 months → mark as "needs refresh" (do not delete without review)
+- `confidence: low` entries → confirmed 2x+? Upgrade to `high`. Still unconfirmed? Keep or retract
+- Duplicates between Patterns.md and Troubleshooting.md → consolidate
+- Entries without reproducible steps (troubleshooting) → add steps or retract
+- `confidence: retracted` entries older than 3 months → safe to remove
+
 ## Example: Troubleshooting entry
 ```markdown
 ## [Platform/Tool] — [Short description]

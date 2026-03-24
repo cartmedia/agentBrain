@@ -54,7 +54,7 @@ agentBrain actively learns. When you find a workaround, recognize a pattern, or 
 | Session memory | -> `local/memories/` |
 
 ### Project subfolder structure
-Projects use subfolders: `Projects/[name]/` with these files:
+Real projects live in `local/Projects/[name]/` (personal, gitignored). Each project folder contains:
 - `index.md` (required) -- main project note
 - `prd.md` (optional) -- requirements and user stories
 - `decisions.md` (optional) -- architecture decision records
@@ -86,7 +86,7 @@ id: <UUID5>
 - `confidence: retracted` = pattern turned out to be wrong, note why
 - `source: session` = from chat, `source: documentation` = from docs
 
-**Project files** (`Projects/[name]/index.md`):
+**Project files** (`local/Projects/[name]/index.md`):
 ```yaml
 ---
 date: YYYY-MM-DD

@@ -35,6 +35,7 @@ Save a new insight to agentBrain so it remains permanently available.
      tags: [relevant, tags]
      confidence: high/medium/low/retracted
      source: session/documentation
+     id: <UUID5>
      ---
      ```
 
