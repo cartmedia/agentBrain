@@ -84,12 +84,14 @@ Log a problem + solution in `Learnings/Troubleshooting.md` so it does not need t
 
 ## /project-update
 
-Create or update a project note in `Projects/`.
+Create or update a project in `Projects/`.
 
-### Steps — New project
+### Steps -- New project
 
 1. **Check if the project already exists** in `Projects/`
-2. **Create `Projects/[name].md`** with this frontmatter:
+2. **Create `Projects/[name]/`** subfolder with at minimum `index.md`:
+   - Use `Templates/Project-Index.md` as template
+   - Generate UUID5 for `id` field
    ```yaml
    ---
    date: YYYY-MM-DD
@@ -97,24 +99,33 @@ Create or update a project note in `Projects/`.
    tags: [relevant, tags]
    status: active/paused/done
    priority: high/medium/low
+   id: <UUID5>
    ---
    ```
-3. **Fill in the sections:**
+3. **Fill in the sections** of `index.md`:
    - `## Goal` -- what this project does and why
    - `## Setup` -- tech stack, repo location, important commands
    - `## Progress` -- milestones with dates
-   - `## Issues & Solutions` -- known problems and fixes
    - `## Related` -- links to learnings, other projects
+4. **Create optional files** as needed:
+   - `prd.md` -- requirements and user stories (use `Templates/Project-PRD.md`)
+   - `decisions.md` -- architecture decision records (use `Templates/Project-Decisions.md`)
+   - `deploy.md` -- deploy configuration (use `Templates/Project-Deploy.md`)
+   - `changelog.md` -- change log (use `Templates/Project-Changelog.md`)
+   - `context.md` -- context map for agents (use `Templates/Project-Context.md`)
+5. **Update `Projects/INDEX.md`** -- add project to the table
 
-### Steps — Updating an existing project
+### Steps -- Updating an existing project
 
-1. **Read the existing note** in `Projects/[name].md`
-2. **Update the relevant section:**
-   - New milestone -> add to `## Progress` with date
-   - Architecture decision -> add to `## Issues & Solutions`
-   - Status changed -> update `status` in frontmatter
+1. **Read the existing files** in `Projects/[name]/`
+2. **Update the relevant file:**
+   - New milestone -> add to `index.md` `## Progress` with date
+   - Architecture decision -> add to `decisions.md` (create if missing)
+   - Status changed -> update `status` in `index.md` frontmatter
    - Project completed -> set `status: done`
-3. **Update the `date` in frontmatter** to today
+   - Work completed -> add entry to `changelog.md`
+3. **Update the `date` in frontmatter** of modified files to today
+4. **Update `Projects/INDEX.md`** -- update status/priority/date in the table
 
 ### Project insight becomes a general pattern?
 
@@ -153,6 +164,9 @@ Periodic review of agentBrain to keep the knowledge base healthy.
    - Are there duplicate entries?
 
 5. **Check projects:**
+   - Projects should be subfolders (`Projects/[name]/`), not single files
+   - Each project subfolder must have at least `index.md`
+   - `Projects/INDEX.md` should be in sync with actual project folders
    - Are `status: active` projects still active?
    - Are completed projects set to `status: done`?
    - Are there projects that exist but have no note?
@@ -161,6 +175,8 @@ Periodic review of agentBrain to keep the knowledge base healthy.
    - Number of notes per category
    - Outdated notes (older than 6 months)
    - Missing frontmatter
+   - Projects not using subfolder structure
+   - INDEX.md out of sync
    - Recommendations for cleanup
    - Apply any fixes directly with confirmation
 

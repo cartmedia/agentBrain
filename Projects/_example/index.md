@@ -3,17 +3,21 @@ date: 2026-03-17
 type: project
 tags: [web, example]
 status: active
+phase: build
 priority: medium
-id: d2cef738-5b47-5adf-8447-5bc73f708ea1
+id: b339471f-fe50-5b51-97a7-fc9c1fe7a854
 ---
 
 # Example Project
+
+> This is an example project subfolder. Use it as reference for the expected structure.
 
 ## Goal
 This is an example project note. Replace this with a description of what the project does and why it exists.
 
 ## Setup
 - Repo: `your-org/your-repo`
+- Stack: Node.js + Express
 - Entry point: `src/index.ts`
 - Build: `npm run build`
 
@@ -21,10 +25,6 @@ This is an example project note. Replace this with a description of what the pro
 - 2026-03-16: Initial setup
 - 2026-03-17: Added core feature X
 
-## Issues & Solutions
-- Description of a problem encountered -> how it was solved
-- Another issue -> resolution and reasoning
-
 ## Related
-- [[Rules]] — self-learning protocol
-- [[Patterns]] — code patterns
+- [[Rules]] -- self-learning protocol
+- [[Patterns]] -- code patterns

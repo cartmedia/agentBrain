@@ -23,6 +23,30 @@ This is an external memory. It grows with every session and becomes smarter over
 3. Is it maintainable? (structure)
 4. Is it polished? (design)
 
+## Project Structure
+
+Projects use subfolders instead of single files.
+
+### Convention
+- Each project lives in `Projects/[name]/`
+- Required: `index.md` (always present)
+- Optional: `prd.md`, `decisions.md`, `deploy.md`, `changelog.md`, `context.md`
+- `Projects/INDEX.md` must be updated when projects are created or modified
+- Templates for all project files are in `Templates/Project-*.md`
+
+### PRD User Stories
+Format: `- [ ] US-XX: Als [role] wil ik [action] zodat [benefit]`
+This format is parseable by ralph-loop and checklister.
+
+### Decisions
+Use ADR-light format (see `Templates/Project-Decisions.md`):
+- Numbered: ADR-001, ADR-002, etc.
+- Status: proposed / accepted / deprecated / superseded
+- Fields: Context, Decision, Consequences
+
+### Changelog
+Auto-updated by agents after completing work. Entries grouped by date, most recent first.
+
 ## Self-Learning Protocol
 
 agentBrain is a self-learning system. Copilot's internal memories expire after 28 days.
@@ -32,7 +56,8 @@ Everything valuable MUST be stored here permanently.
 Read at the beginning of every session:
 1. `Learnings/Patterns.md` — known patterns
 2. `Learnings/Troubleshooting.md` — known problems
-3. Relevant `Projects/*.md` — project context
+3. `System/Lifecycle.md` — project phase definitions
+4. Relevant `Projects/[name]/index.md` — project context
 
 ### Step 2: Write during session
 | Trigger | Action |
@@ -41,11 +66,12 @@ Read at the beginning of every session:
 | Pattern recognized 2x+ | -> `Learnings/Patterns.md` — add section |
 | Pattern seen 1st time | -> `Learnings/Patterns.md` with `confidence: low`, note "seen 1x" |
 | New technical insight | -> `Learnings/[category].md` — new file (see categories below) |
-| New project started | -> `Projects/[name].md` — use `Templates/Project.md` |
-| Project milestone/decision | -> existing `Projects/[name].md` update |
+| New project started | -> `Projects/[name]/index.md` — use `Templates/Project-Index.md` |
+| Project milestone/decision | -> existing `Projects/[name]/index.md` or `decisions.md` update |
 | Library/API limitation discovered | -> `Learnings/Troubleshooting.md` — add section |
 | Cross-platform fix | -> `Learnings/Troubleshooting.md` — add section |
 | Build/deploy configuration | -> `Learnings/[tool].md` or `Troubleshooting.md` |
+| Phase transition | -> update `phase:` in `index.md` frontmatter + log in `changelog.md` |
 
 ### Categories for `Learnings/[category].md`
 Examples of category files you can create:

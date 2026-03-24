@@ -32,13 +32,27 @@ The self-learning protocol writes insights, patterns, and troubleshooting fixes 
 | `.github/copilot-instructions.md` | Entry point -- agent reads this automatically |
 | `.github/skills/` | Slash commands for GitHub Copilot (native format) |
 | `Learnings/` | Technical insights, patterns, troubleshooting |
-| `Projects/` | Project notes and progress tracking |
+| `Projects/` | Project subfolders with index, PRD, decisions, deploy, changelog |
+| `Projects/INDEX.md` | Central project registry |
 | `Sessions/` | Session logs (auto-generated, git-ignored) |
 | `Daily Notes/` | Daily notes (auto-generated, git-ignored) |
 | `User Preferences/` | Your work style, design taste, tech stack |
-| `Templates/` | Templates for new notes |
+| `Templates/` | Templates for new notes and project files |
 | `System/` | Rules, self-learning protocol, and cross-agent skills |
 | `scripts/` | Helper scripts (setup, daily notes, UUID generator) |
+
+### Project subfolder convention
+
+Each project is a folder under `Projects/`:
+```
+Projects/[name]/
+  index.md        (required -- main project note)
+  prd.md          (optional -- requirements, user stories)
+  decisions.md    (optional -- architecture decision records)
+  deploy.md       (optional -- deploy configuration)
+  changelog.md    (optional -- change log)
+  context.md      (optional -- what to read per phase)
+```
 
 ## Agent Compatibility
 
@@ -58,7 +72,7 @@ The self-learning protocol writes insights, patterns, and troubleshooting fixes 
 |-------|-------------|
 | `/save-learning` | Save a new insight to the appropriate file |
 | `/save-troubleshoot` | Log a problem + solution |
-| `/project-update` | Create or update a project note |
+| `/project-update` | Create or update a project (subfolder with index.md + optional files) |
 | `/brain-review` | Audit the brain for quality and staleness |
 | `/onboard` | Interactive setup to personalize User Preferences |
 
@@ -75,7 +89,7 @@ The brain learns automatically. When the agent discovers something valuable, it 
 | Workaround/fix found | `Learnings/Troubleshooting.md` |
 | Pattern seen 2x+ | `Learnings/Patterns.md` |
 | New technical insight | `Learnings/[Category].md` |
-| Project milestone | `Projects/[name].md` |
+| Project milestone | `Projects/[name]/index.md` |
 
 See `System/Rules.md` for the full protocol.
 
