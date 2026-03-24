@@ -288,8 +288,7 @@ SKILLS=$(find "${VAULT}/.github/skills" -name "SKILL.md" 2>/dev/null | wc -l | t
 
 echo "─────────────────────────────────────────"
 echo "  Learnings:  ${LEARNINGS} notes"
-echo "  Projects:   ${LOCAL_PROJECTS} personal (local/Projects/)"
-echo "              ${SHARED_PROJECTS} shared (Projects/)"
+echo "  Projects:   ${LOCAL_PROJECTS} personal, ${SHARED_PROJECTS} shared"
 echo "  Skills:     ${SKILLS} available"
 echo "  Templates:  $((${#TEMPLATES[@]} - MISSING))/${#TEMPLATES[@]} present"
 echo "─────────────────────────────────────────"
