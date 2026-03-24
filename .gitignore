@@ -1,29 +1,8 @@
-# System
-.DS_Store
-Thumbs.db
-
-# Session and daily note content (personal, not shared)
-Sessions/**/*.md
-!Sessions/.gitkeep
-Daily Notes/**/*.md
-!Daily Notes/.gitkeep
-
-# Environment
-.env
-.env.local
-.env.*.local
-
-# Logs
-*.log
-
-# Node
-node_modules/
-
 # Obsidian cache
-.obsidian/cache/
-.obsidian/workspace.json
-.obsidian/graph.json
-brain.json
 
-# Personal layer (never committed)
-local/
+# Obsidian community plugins (often contain user-specific state or tokens)
+.obsidian/plugins/
+.obsidian/community-plugins.json
+.obsidian/hotkeys.json
+
+# Other existing content...
