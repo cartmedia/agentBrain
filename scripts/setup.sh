@@ -17,7 +17,17 @@ YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-echo "Setting up agentBrain in: ${VAULT}"
+# Detect platform
+PLATFORM="unknown"
+if [ "$(uname)" = "Darwin" ]; then
+  PLATFORM="macOS"
+elif [ -n "${WSL_DISTRO_NAME:-}" ]; then
+  PLATFORM="WSL (${WSL_DISTRO_NAME})"
+elif [ "$(uname)" = "Linux" ]; then
+  PLATFORM="Linux"
+fi
+
+echo "Setting up agentBrain in: ${VAULT} (${PLATFORM})"
 echo ""
 
 # ── 0. Dependencies ──────────────────────────
@@ -155,7 +165,7 @@ fi
 # Cross-platform settings path
 # Check Code, Code-Insiders, and VSCodium
 VSCODE_SETTINGS=""
-if [ "$(uname)" = "Darwin" ]; then
+if [ "$PLATFORM" = "macOS" ]; then
   VSCODE_CANDIDATES=(
     "$HOME/Library/Application Support/Code/User/settings.json"
     "$HOME/Library/Application Support/Code - Insiders/User/settings.json"
