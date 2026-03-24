@@ -5,8 +5,8 @@ tags: [meta, readme]
 id: 5a26c40d-fb39-535c-b6f3-61c572c8983c
 ---
 
-# agentBrain v1.2
-> Version: v1.2 (2026-03-24)
+# agentBrain v1.3
+> Version: v1.3 (2026-03-24)
 
 Portable, self-learning knowledge base for AI coding agents. Works with VS Code Copilot, Obsidian, Cursor, Cline, Claude Code, and any agent that reads markdown.
 
