@@ -28,10 +28,11 @@ This is an external memory. It grows with every session and becomes smarter over
 Projects use subfolders instead of single files.
 
 ### Convention
-- Each project lives in `Projects/[name]/`
-- Required: `index.md` (always present)
+- Real projects live in `local/Projects/[name]/` (personal, gitignored)
+- Shared registry lives in `Projects/INDEX.md` (names + status, no secrets)
+- `Projects/_example/` shows the folder structure and is safe to commit
+- Required per project: `index.md` (always present)
 - Optional: `prd.md`, `decisions.md`, `deploy.md`, `changelog.md`, `context.md`
-- `Projects/INDEX.md` must be updated when projects are created or modified
 - Templates for all project files are in `Templates/Project-*.md`
 
 ### PRD User Stories
@@ -106,6 +107,14 @@ Before writing, check:
 - **`local/`** = personal, project-specific, private → gitignored
 - When in doubt: if it helps only you, it goes in `local/`. If it helps anyone, it goes in `Learnings/`
 - Promote: when a personal insight proves broadly useful, move it from `local/memories/` to `Learnings/`
+
+## Security & Privacy
+
+- **Never store secrets in the shared layer** (`Learnings/`, `System/`, `Templates/`, `User Preferences/`, `Projects/`): no API keys, tokens, passwords, private URLs, customer data, or proprietary code.
+- **All sensitive config belongs in `local/integrations/`** (gitignored). If a tool needs a key, reference it conceptually (e.g. “set `OPENAI_API_KEY`”) but never paste the value.
+- **Sanitize session output before saving**: remove stack traces or logs that contain tokens, cookies, headers, or user identifiers. Prefer redaction like `sk-…REDACTED…`.
+- **Do not commit Obsidian plugin data**: keep `.obsidian/plugins/` and related state files untracked (already gitignored).
+- **If a secret was committed accidentally**: rotate/revoke it immediately, then rewrite history (e.g. git filter-repo / BFG) and force-push if needed.
 
 ## When NOT to write
 - Trivial/one-off information
