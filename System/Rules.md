@@ -57,21 +57,30 @@ Read at the beginning of every session:
 1. `Learnings/Patterns.md` — known patterns
 2. `Learnings/Troubleshooting.md` — known problems
 3. `System/Lifecycle.md` — project phase definitions
-4. Relevant `Projects/[name]/index.md` — project context
+4. Relevant `local/Projects/[name]/index.md` — project context
+5. `local/memories/` — personal context (if exists)
 
 ### Step 2: Write during session
+
+**Shared knowledge** (committed to git — generic, useful to anyone):
 | Trigger | Action |
 |---------|--------|
 | Workaround/fix found | -> `Learnings/Troubleshooting.md` — add section |
 | Pattern recognized 2x+ | -> `Learnings/Patterns.md` — add section |
 | Pattern seen 1st time | -> `Learnings/Patterns.md` with `confidence: low`, note "seen 1x" |
 | New technical insight | -> `Learnings/[category].md` — new file (see categories below) |
-| New project started | -> `Projects/[name]/index.md` — use `Templates/Project-Index.md` |
-| Project milestone/decision | -> existing `Projects/[name]/index.md` or `decisions.md` update |
 | Library/API limitation discovered | -> `Learnings/Troubleshooting.md` — add section |
 | Cross-platform fix | -> `Learnings/Troubleshooting.md` — add section |
 | Build/deploy configuration | -> `Learnings/[tool].md` or `Troubleshooting.md` |
+
+**Personal data** (gitignored — project-specific, private):
+| Trigger | Action |
+|---------|--------|
+| New project started | -> `local/Projects/[name]/index.md` — use `Templates/Project-Index.md` |
+| Project milestone/decision | -> existing `local/Projects/[name]/` update relevant file |
 | Phase transition | -> update `phase:` in `index.md` frontmatter + log in `changelog.md` |
+| Session memory | -> `local/memories/` |
+| Bot/loop integration config | -> `local/integrations/` |
 
 ### Categories for `Learnings/[category].md`
 Examples of category files you can create:
@@ -91,6 +100,12 @@ Before writing, check:
 - [ ] Is it actionable? -> if not, don't save
 - [ ] Is it proven? -> no speculation
 - [ ] Is it reproducible? (for troubleshooting)
+
+## Shared vs Personal
+- **`Learnings/`** = shared, generic, useful to anyone → committed to git
+- **`local/`** = personal, project-specific, private → gitignored
+- When in doubt: if it helps only you, it goes in `local/`. If it helps anyone, it goes in `Learnings/`
+- Promote: when a personal insight proves broadly useful, move it from `local/memories/` to `Learnings/`
 
 ## When NOT to write
 - Trivial/one-off information

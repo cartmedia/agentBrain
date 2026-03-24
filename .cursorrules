@@ -10,10 +10,18 @@ If any file in `User Preferences/` contains "This is an example file", tell the 
 - `Learnings/Troubleshooting.md` -- known problems
 - `System/Rules.md` -- self-learning protocol
 - `System/Skills.md` -- available slash commands
-## During session, write new insights:
-- Workaround found -> add to `Learnings/Troubleshooting.md`
-- Pattern recognized -> add to `Learnings/Patterns.md`
-- New insight -> create `Learnings/[Category].md`
+- `local/memories/` -- personal context (if exists)
+
+## During session, write:
+
+**Shared** (generic knowledge):
+- Workaround found -> `Learnings/Troubleshooting.md`
+- Pattern recognized -> `Learnings/Patterns.md`
+- New insight -> `Learnings/[Category].md`
+
+**Personal** (gitignored):
+- Project data -> `local/Projects/[name]/`
+- Session memory -> `local/memories/`
 
 ## Style
 - Concise, no bloat

@@ -32,8 +32,9 @@ The self-learning protocol writes insights, patterns, and troubleshooting fixes 
 | `.github/copilot-instructions.md` | Entry point -- agent reads this automatically |
 | `.github/skills/` | Slash commands for GitHub Copilot (native format) |
 | `Learnings/` | Technical insights, patterns, troubleshooting |
-| `Projects/` | Project subfolders with index, PRD, decisions, deploy, changelog |
-| `Projects/INDEX.md` | Central project registry |
+| `local/Projects/` | Your project notes (gitignored, personal) |
+| `local/memories/` | Personal context and memories (gitignored) |
+| `local/integrations/` | Bot configs, loop runners, API keys (gitignored) |
 | `Sessions/` | Session logs (auto-generated, git-ignored) |
 | `Daily Notes/` | Daily notes (auto-generated, git-ignored) |
 | `User Preferences/` | Your work style, design taste, tech stack |
@@ -89,7 +90,7 @@ The brain learns automatically. When the agent discovers something valuable, it 
 | Workaround/fix found | `Learnings/Troubleshooting.md` |
 | Pattern seen 2x+ | `Learnings/Patterns.md` |
 | New technical insight | `Learnings/[Category].md` |
-| Project milestone | `Projects/[name]/index.md` |
+| Project milestone | `local/Projects/[name]/index.md` |
 
 See `System/Rules.md` for the full protocol.
 

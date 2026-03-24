@@ -14,8 +14,9 @@ Copilot's internal memories expire after 28 days -- agentBrain is permanent.
 ## Session Start
 At the start of every session:
 1. Read: `Learnings/Patterns.md`, `Learnings/Troubleshooting.md`, `System/Rules.md`, `System/Skills.md`, `System/Lifecycle.md`
-2. Read relevant `Projects/[name]/index.md` and `User Preferences/` files
-3. **Onboarding check**: If any `User Preferences/` file still contains `This is an example file`, tell the user: "Some preferences are not set up yet. Run `/onboard` to personalize agentBrain."
+2. Read relevant `local/Projects/[name]/index.md` and `User Preferences/` files
+3. Read `local/memories/` for personal context (if exists)
+4. **Onboarding check**: If any `User Preferences/` file still contains `This is an example file`, tell the user: "Some preferences are not set up yet. Run `/onboard` to personalize agentBrain."
 
 ## Style
 - Concise -- no unnecessary explanations
@@ -34,17 +35,23 @@ At the start of every session:
 agentBrain actively learns. When you find a workaround, recognize a pattern, or discover a technical insight, **write it to the appropriate file**. This is an explicit action -- do it at the end of the session or when the insight occurs.
 
 ### Triggers -- when to write
+
+**Shared** (generic, committed to git):
 | Trigger | Action |
 |---------|--------|
 | Workaround/fix found | -> `Learnings/Troubleshooting.md` -- add section |
 | Pattern recognized 2x+ | -> `Learnings/Patterns.md` -- add section |
 | Pattern seen 1st time | -> `Learnings/Patterns.md` with `confidence: low`, note "seen 1x" |
 | New technical insight | -> `Learnings/[category].md` -- new file (PascalCase, e.g. `macOS.md`) |
-| New project started | -> `Projects/[name]/index.md` -- use `Templates/Project-Index.md` |
-| Project milestone/decision | -> existing `Projects/[name]/` update relevant file |
-| Library/API limitation discovered | -> `Learnings/Troubleshooting.md` -- add section |
+| Library/API limitation | -> `Learnings/Troubleshooting.md` -- add section |
 | Cross-platform fix | -> `Learnings/Troubleshooting.md` -- add section |
-| Build/deploy configuration | -> `Learnings/[tool].md` or `Troubleshooting.md` |
+
+**Personal** (gitignored, in `local/`):
+| Trigger | Action |
+|---------|--------|
+| New project started | -> `local/Projects/[name]/index.md` |
+| Project milestone | -> `local/Projects/[name]/` update relevant file |
+| Session memory | -> `local/memories/` |
 
 ### Project subfolder structure
 Projects use subfolders: `Projects/[name]/` with these files:
