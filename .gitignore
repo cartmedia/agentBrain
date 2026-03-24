@@ -24,3 +24,6 @@ node_modules/
 .obsidian/workspace.json
 .obsidian/graph.json
 brain.json
+
+# Personal layer (never committed)
+local/

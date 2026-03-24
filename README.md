@@ -93,11 +93,31 @@ The brain learns automatically. When the agent discovers something valuable, it 
 
 See `System/Rules.md` for the full protocol.
 
+## Public vs Personal
+
+agentBrain separates shared knowledge from personal data:
+
+```
+~/agentBrain/
+├── Learnings/          ← shared (committed to git)
+├── System/             ← shared
+├── Templates/          ← shared
+├── User Preferences/   ← shared (examples, you customize)
+└── local/              ← PERSONAL (gitignored, never pushed)
+    ├── Projects/       ← your project notes
+    ├── Sessions/       ← your session logs
+    ├── integrations/   ← bot configs, loop runners, API keys
+    └── memories/       ← personal context and memories
+```
+
+`git pull` updates shared knowledge without touching `local/`. Your personal data stays private.
+
 ## Customization
 
 1. **User Preferences/** -- Fill in your work style, tech stack, communication style, design philosophy
 2. **Learnings/** -- Pre-seed with your known patterns and troubleshooting
 3. **System/Rules.md** -- Adjust the self-learning triggers and quality rules
+4. **local/integrations/** -- Connect bots, dev loops, and external tools
 
 ## Obsidian Vault
 
