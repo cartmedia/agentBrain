@@ -281,12 +281,15 @@ for tmpl in "${TEMPLATES[@]}"; do
 done
 
 LEARNINGS=$(find "${VAULT}/Learnings" -name "*.md" ! -name "_*" 2>/dev/null | wc -l | tr -d ' ')
-PROJECTS=$(find "${VAULT}/Projects" -name "*.md" ! -name "_*" 2>/dev/null | wc -l | tr -d ' ')
+# Projects split: shared (tracked) vs local (personal)
+SHARED_PROJECTS=$(find "${VAULT}/Projects" -name "*.md" ! -name "_*" 2>/dev/null | wc -l | tr -d ' ')
+LOCAL_PROJECTS=$(find "${VAULT}/local/Projects" -name "*.md" ! -name "_*" 2>/dev/null | wc -l | tr -d ' ')
 SKILLS=$(find "${VAULT}/.github/skills" -name "SKILL.md" 2>/dev/null | wc -l | tr -d ' ')
 
 echo "─────────────────────────────────────────"
 echo "  Learnings:  ${LEARNINGS} notes"
-echo "  Projects:   ${PROJECTS} notes"
+echo "  Projects:   ${LOCAL_PROJECTS} personal (local/Projects/)"
+echo "              ${SHARED_PROJECTS} shared (Projects/)"
 echo "  Skills:     ${SKILLS} available"
 echo "  Templates:  $((${#TEMPLATES[@]} - MISSING))/${#TEMPLATES[@]} present"
 echo "─────────────────────────────────────────"
